@@ -1,4 +1,4 @@
-from ..utils.ka_utils import *
+from ..Utils.KA_utils import *
 
 def ka_replace_hash(hashes, hash_id_table):
     '''Exchange values and index, very useful in recommendation task

@@ -1,4 +1,4 @@
-from ..utils.ka_utils import  *
+from ..Utils.KA_utils import *
 
 
 def ka_display_muti_tables_summary(tables, table_names):

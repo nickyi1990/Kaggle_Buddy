@@ -1,4 +1,4 @@
-from ..utils.ka_utils import *
+from ..Utils.KA_utils import *
 
 
 def ka_add_stats_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, drop_raw_col=False):
