@@ -26,23 +26,6 @@ class tick_tock:
         print('time lapsing {0} s \n'.format(end_time - self.begin_time))
 
 
-def ka_get_NC_col_names(data):
-    '''Get column names of category and numeric
-
-    Parameters
-    ----------
-    data: pandas dataframe
-
-    Return:
-    ----------
-    numerics_cols: numeric column names
-    category_cols: category column names
-
-    '''
-    numerics_cols = data.select_dtypes(exclude=['O']).columns.tolist()
-    category_cols = data.select_dtypes(include=['O']).columns.tolist()
-    return numerics_cols, category_cols
-
 def pickle_dump(data, filename):
     with open(filename, 'wb') as f:
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
