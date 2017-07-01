@@ -38,6 +38,10 @@ def ka_xgb_r2_error(preds, dtrain):
     labels = dtrain.get_label()
     return 'error', r2_score(labels, preds)
 
+def ka_xgb_r2_exp_error(preds, dtrain):
+    labels = dtrain.get_label()
+    return 'error', r2_score(np.exp(labels), np.exp(preds))
+
 def ka_is_numpy(df):
     '''Check if a object is numpy
 
