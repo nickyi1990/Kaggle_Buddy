@@ -34,7 +34,7 @@ class tick_tock:
         print('time lapsing {0} s \n'.format(end_time - self.begin_time))
 
 
-class callbacks_me:
+class callbacks_keras:
     def __init__(self, filepath, model,
                  base_lr=1e-3, decay_rate=1,
                  decay_after_n_epoch=10, patience=20,
