@@ -9,6 +9,11 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 from sklearn.cross_validation import KFold
 
+from keras.layers import Dense, Dropout, Input, Embedding, Flatten, Merge, Reshape, BatchNormalization
+from keras.models import Model, Sequential
+from keras.optimizers import adam, sgd
+from keras.callbacks import ModelCheckpoint, EarlyStopping, LearningRateScheduler
+
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_rows', 500)
 from IPython.display import display
