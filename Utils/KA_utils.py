@@ -9,10 +9,12 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import r2_score
 from sklearn.cross_validation import KFold
 
-from keras.layers import Dense, Dropout, Input, Embedding, Flatten, Merge, Reshape, BatchNormalization
-from keras.models import Model, Sequential
+import keras.backend as K
 from keras.optimizers import adam, sgd
+from keras.models import Model, Sequential
 from keras.callbacks import ModelCheckpoint, EarlyStopping, LearningRateScheduler
+from keras.layers import Dense, Dropout, Input, Embedding, Flatten, Merge, Reshape, BatchNormalization
+
 
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_rows', 500)
@@ -30,6 +32,32 @@ class tick_tock:
         end_time = time.time()
         print(self.process_name + " end ......")
         print('time lapsing {0} s \n'.format(end_time - self.begin_time))
+
+
+class callbacks_me:
+    def __init__(self, filepath, model,
+                 base_lr=1e-3, decay_rate=1,
+                 decay_after_n_epoch=10, patience=20,
+                 mode='min', monitor='val_loss'):
+        self.base_lr = base_lr
+        self.model = model
+        self.decay_rate = decay_rate
+        self.decay_after_n_epoch = decay_after_n_epoch
+        self.callbacks = [ModelCheckpoint(filepath = filepath,
+                                          monitor = monitor,
+                                          verbose = 2,
+                                          save_best_only = True,
+                                          save_weights_only = True,
+                                          mode = mode),
+                         EarlyStopping(monitor = monitor, patience = patience, verbose=2, mode = mode),
+                         LearningRateScheduler(self._scheduler)]
+
+    def _scheduler(self, epoch):
+        if epoch%self.decay_after_n_epoch==0 and epoch!=0:
+            lr = K.get_value(self.model.optimizer.lr)
+            K.set_value(self.model.optimizer.lr, lr*self.decay_rate)
+            print("lr changed to {}".format(lr**self.decay_rate))
+        return K.get_value(self.model.optimizer.lr)
 
 
 def pickle_dump(data, filename):
