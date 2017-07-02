@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from sklearn.metrics import r2_score
+from sklearn.cross_validation import KFold
 
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_rows', 500)
