@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.metrics import r2_score
 from sklearn.cross_validation import KFold
+from sklearn.model_selection import train_test_split
 
 import keras.backend as K
 from keras.optimizers import adam, sgd
