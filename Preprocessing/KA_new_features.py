@@ -1,7 +1,7 @@
 from ..Utils.KA_utils import *
 
 
-def ka_add_stats_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, drop_raw_col=False):
+def ka_add_stats_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, drop_raw_col=False, keep_only_stats=False):
     '''Create statistical columns, group by [N columns] and compute stats on [1 column]
 
        Parameters
@@ -49,11 +49,13 @@ def ka_add_stats_features_n_vs_1(df, group_columns_list, target_columns_list, me
         the_stats.columns = [grouped_name] + \
                             ['_%s_%s_by_%s' % (grouped_name, method_name, target_name) \
                              for (grouped_name, method_name, target_name) in combine_name]
-
-        df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
-        if drop_raw_col:
-            df_new.drop(group_columns_list, axis=1, inplace=True)
-    return df_new
+        if keep_only_stats:
+            return the_stats
+        else:
+            df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
+            if drop_raw_col:
+                df_new.drop(group_columns_list, axis=1, inplace=True)
+        return df_new
 
 def ka_add_stats_features_1_vs_n(df, group_columns_list, agg_dict, only_new_feature=True):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
