@@ -115,6 +115,33 @@ def ka_look_skewnewss(data):
 
     return df
 
+def ka_look_groupby_n_1_stats(X, y, iv_dv_pair, precent=25):
+    '''Evaluate statistical indicators in each category
+
+       Parameters
+       ----------
+       X: pandas dataframe
+          Features matrix, it should not contain columns has the same value with y
+       y: pandas dataframe
+          Labels
+       iv_dv_pair: list_like
+          independent variable and dependent variable, like ['category', 'target']
+
+       Return
+       ------
+       pandas dataframe
+
+       Example
+       -------
+       ka_look_groupby_n_1_stats(train, y, ['x0','y'])
+    '''
+    _X_forplot = pd.concat([X, y], axis=1)
+    _df_target = pd.DataFrame(_X_forplot.groupby(iv_dv_pair[:-1])[iv_dv_pair[-1]].\
+                              agg([len, np.mean, np.median, np.min, np.max, np.std]).\
+                              sort_values('mean', ascending=False)).reset_index()
+
+    return _df_target.sort_values('mean', ascending=False)
+
 def ka_C_Binary_ratio(y, positive=1):
     '''Find the positive ration of dependent variable
 
