@@ -2,7 +2,7 @@ from ..Utils.KA_utils import tick_tock
 import numpy as np
 import pandas as pd
 
-def ka_add_stats_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, drop_raw_col=False, keep_only_stats=False):
+def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, drop_raw_col=False, keep_only_stats=False):
     '''Create statistical columns, group by [N columns] and compute stats on [1 column]
 
        Parameters
@@ -58,7 +58,7 @@ def ka_add_stats_features_n_vs_1(df, group_columns_list, target_columns_list, me
                 df_new.drop(group_columns_list, axis=1, inplace=True)
         return df_new
 
-def ka_add_stats_features_1_vs_n(df, group_columns_list, agg_dict, only_new_feature=True):
+def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_feature=True):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -122,6 +122,10 @@ def ka_add_hash_feature(df, category_columns_list):
     '''
     with tick_tock("add hash feature"):
         df_new = df.copy()
-        df_new['hash_' + ''.join(category_columns_list)] = df_new[category_columns_list].apply(lambda x: hash(tuple(x)),
+        if(len(category_columns_list) > 8):
+            df_new['hash_' + category_columns_list[0] + '_' + category_columns_list[-1]] = df_new[category_columns_list].apply(lambda x: hash(tuple(x)),
+                                                                                               axis=1)
+        else:
+            df_new['hash_' + ''.join(category_columns_list)] = df_new[category_columns_list].apply(lambda x: hash(tuple(x)),
                                                                                                axis=1)
     return df_new
