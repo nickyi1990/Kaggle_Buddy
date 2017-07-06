@@ -78,6 +78,9 @@ def ka_xgb_r2_exp_error(preds, dtrain):
     preds = np.clip(np.exp(preds),0, 1e10)
     return 'error', r2_score(np.exp(labels), preds)
 
+def kaggle_points(n_teams, n_teammates, rank, t=1):
+    return (100000 / np.sqrt(n_teammates)) * (rank ** (-0.75)) * (np.log10(1 + np.log10(n_teams))) * (np.e**(t/500))
+
 def ka_is_numpy(df):
     '''Check if a object is numpy
 
