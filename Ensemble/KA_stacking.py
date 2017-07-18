@@ -4,64 +4,114 @@ import numpy as np
 import pandas as pd
 import xgboost
 
-def ka_stacking_xgboost(train, test, y, xgb_params, num_boost_round, kf_n, verbose=1):
-    '''Stacking for xgboost
+class ka_stacking_generalization(object):
+    def __init__(self, X_train, X_test, y, kf_n, verbose=1):
+        '''Stacking for models except "neuron network" and "xgboost"
 
-       Parameters
-       ----------
-       train: pandas dataframe
-            training data
-       test: pandas dataframe
-            testing data
-       y: pandas series
-            training target
-       xgb_params: python dictionary
-            xgboost parameters
-       num_boost_round: int
-            number of boosting rounds
-       kf_n: KFold object
+           Parameters
+           ----------
+           X_train: pandas dataframe
+                training data
+           X_test: pandas dataframe
+                testing data
+           y: pandas series
+                training target
+           xgb_params: python dictionary
+                xgboost parameters
+           num_boost_round: int
+                number of boosting rounds
+           kf_n: KFold object
 
-       Return
-       ------
-       pred_train_stack: numpy array
-                        stacked training data
-       pred_test_stack: numpy array
-                        stacked testing data
 
-       Example
-       -------
-       xgb_params = {
-            'eta': 0.01,
-            'max_depth': 3,
-            'objective': 'reg:linear',
-            'eval_metric': 'rmse',
-            'tree_method': 'hist',
-            'colsample_bytree': 0.5,
-            'base_score': data_train.y.mean(), # base prediction = mean(target)
-            'silent': 1
-        }
+           kf_5 = KFold(data_train.shape[0], n_folds=5, shuffle=True, random_state=1024)
+        '''
+        self.X_train = X_train.values
+        self.X_test = X_test.values
+        self.y = y.values
+        self.kf_n = kf_n
+        self.verbose = verbose
 
-        kf_5 = KFold(data_train.shape[0], n_folds=5, shuffle=True, random_state=1024)
-        pred_train_stack_xgb, pred_test_stack_xgb = ka_stacking_xgboost(data_train, data_test,
-                                                                    y, xgb_params, 741, kf_5)
-    '''
-    with tick_tock("add stats features", verbose):
-        d_test = xgboost.DMatrix(test.values)
-        n_folds = kf_n.n_folds
-        pred_train_stack = np.zeros_like(y)
-        pred_test_stack_tmp = np.zeros((y.shape[0], n_folds))
+    def run_xgboost_stacker(self, xgb_params, num_boost_round):
+        '''Stacking for xgboost
 
-        for i, (train_index, val_index) in enumerate(kf_n):
-            X_train, X_val = train.values[train_index], train.values[val_index]
-            y_train, y_val = y.values[train_index], y.values[val_index]
+           Parameters
+           ----------
+           xgb_params: python dictionary
+                xgboost parameters
+           num_boost_round: int
+                number of boosting rounds
 
-            d_train_fold = xgboost.DMatrix(X_train, y_train)
-            d_val_fold = xgboost.DMatrix(X_val)
+           Return
+           ------
+           S_train: numpy array
+                            stacked training data
+           S_test: numpy array
+                            stacked testing data
 
-            model_fold = xgboost.train(xgb_params, dtrain=d_train_fold, num_boost_round=num_boost_round)
-            pred_train_stack[val_index] = model_fold.predict(d_val_fold)
-            pred_test_stack_tmp[:, i] = model_fold.predict(d_test)
+           Example
+           -------
+           xgb_params = {
+                'eta': 0.01,
+                'max_depth': 3,
+                'objective': 'reg:linear',
+                'eval_metric': 'rmse',
+                'tree_method': 'hist',
+                'colsample_bytree': 0.5,
+                'base_score': data_train.y.mean(), # base prediction = mean(target)
+                'silent': 1
+            }
 
-        pred_test_stack = pred_test_stack_tmp.sum(axis=1) / n_folds
+            S_train, S_test = run_xgboost_stacker(xgb_params, 741)
+        '''
+        with tick_tock("add stats features", self.verbose):
+            d_test = xgboost.DMatrix(self.X_test)
+            n_folds = self.kf_n.n_folds
+            S_train = np.zeros_like(self.y)
+            S_test_i = np.zeros((self.y.shape[0], n_folds))
 
-        return pred_train_stack, pred_test_stack
+            for i, (train_index, val_index) in enumerate(self.kf_n):
+                X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
+                y_train_cv = self.y[train_index]
+
+                d_train_fold = xgboost.DMatrix(X_train_cv, y_train_cv)
+                d_val_fold = xgboost.DMatrix(X_val_cv)
+
+                model_fold = xgboost.train(xgb_params, dtrain=d_train_fold, num_boost_round=num_boost_round)
+                S_train[val_index] = model_fold.predict(d_val_fold)
+                S_test_i[:, i] = model_fold.predict(d_test)
+
+            S_test = S_test_i.sum(axis=1) / n_folds
+
+            return S_train, S_test
+    def run_other_stackers(self, base_models):
+        '''Stacking for sklearn mdoels
+           Parameters
+           ----------
+           base_models: models in list.
+               [model_1, model_2, ...], only support sklearn's models
+
+           Return
+           ------
+           S_train: numpy array
+                            stacked training data
+           S_test: numpy array
+                            stacked testing data
+        '''
+        with tick_tock("fitting stacking", self.verbose):
+            S_train = np.zeros((self.X_train.shape[0], len(base_models)))
+            S_test = np.zeros((self.X_test.shape[0], len(base_models)))
+
+            print ("Fitting base models begin")
+            for i, model in enumerate(base_models):
+                print ("Fitting the {0} th base models".format(i))
+                S_test_i = np.zeros((self.X_test.shape[0], len(self.kf_n)))
+                for j, (train_idx, val_index) in enumerate(self.kf_n):
+                    X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
+                    y_train_cv = self.y[train_index]
+
+                    model.fit(X_train_cv, y_train_cv)
+                    y_pred = model.predict(X_val_cv)[:]
+                    S_train[val_index,i] = y_pred
+                    S_test_i[:,j] = model.predict(self.X_test)[:]
+                S_test[:,i] = S_test_i.mean(1)
+            return S_train, S_test
