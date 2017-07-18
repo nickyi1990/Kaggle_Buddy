@@ -21,6 +21,13 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_rows', 500)
 from IPython.display import display
 from pandas_summary import DataFrameSummary
+from sklearn.svm import SVC, SVR
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.linear_model import LogisticRegression, ElasticNet, Lasso, Ridge
+from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
+from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
 
 class tick_tock:
