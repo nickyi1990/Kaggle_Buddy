@@ -2,7 +2,7 @@
 from ..Utils.KA_utils import tick_tock
 import numpy as np
 import pandas as pd
-
+import xgboost
 
 def ka_stacking_xgboost(train, test, y, xgb_params, num_boost_round, kf_n, verbose=1):
     '''Stacking for xgboost
