@@ -113,7 +113,7 @@ class ka_stacking_generalization(object):
             for i, model in enumerate(base_models):
                 print ("Fitting the {0} th base models".format(i))
                 S_test_i = np.zeros((self.X_test.shape[0], len(self.kf_n)))
-                for j, (train_idx, val_index) in enumerate(self.kf_n):
+                for j, (train_index, val_index) in enumerate(self.kf_n):
                     X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
                     y_train_cv = self.y[train_index]
 
