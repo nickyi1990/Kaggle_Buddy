@@ -1,8 +1,16 @@
 
 from ..Utils.KA_utils import tick_tock
+
+import xgboost
 import numpy as np
 import pandas as pd
-import xgboost
+from sklearn.svm import SVC, SVR
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.linear_model import LogisticRegression, ElasticNet, Lasso, Ridge
+from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
+from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
 class ka_stacking_generalization(object):
     def __init__(self, X_train, X_test, y, kf_n, verbose=1):
