@@ -2,7 +2,7 @@ from ..Utils.KA_utils import tick_tock
 import numpy as np
 import pandas as pd
 
-def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, drop_raw_col=False, keep_only_stats=False, verbose=1):
+def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, keep_only_stats=True, verbose=1):
     '''Create statistical columns, group by [N columns] and compute stats on [1 column]
 
        Parameters
@@ -15,8 +15,6 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
           column you want to compute stats, need to be a list with only one element
        methods_list: list_like
           methods that you want to use, all methods that supported by groupby in Pandas
-       drop_raw_col: boolean
-          whether to drop the original grouped columns
 
        Return
        ------
@@ -54,11 +52,9 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
             return the_stats
         else:
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
-            if drop_raw_col:
-                df_new.drop(group_columns_list, axis=1, inplace=True)
         return df_new
 
-def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_feature=True):
+def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_feature=True, verbose=1):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -82,7 +78,7 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_fe
                                               'prod_order_more_than_once':lambda x: sum(x==2)}}
        ka_add_stats_features_1_vs_n(train, ['product_id'], agg_dict)
     '''
-    with tick_tock("add stats features"):
+    with tick_tock("add stats features", verbose):
         try:
             if type(group_columns_list) == list:
                 pass
