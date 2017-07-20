@@ -105,6 +105,35 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_fe
 
     return df_new
 
+def ka_replace_hash(hashes, hash_id_table):
+    '''Replace "hash in hashes" to "numeric index in hash_id_table"
+
+       Parameter
+       ---------
+       hashes: pandas series
+       hash_id_table: pandas series
+
+       Return
+       ------
+       numpy array:
+           replaced numeric number
+
+
+       Example
+       -------
+       user_ids:
+       0        d9dca3cb44bab12ba313eaa681f663eb
+       1        560574a339f1b25e57b0221e486907ed
+
+       detail.USER_ID_hash:
+       0         d9dca3cb44bab12ba313eaa681f663eb
+       1         560574a339f1b25e57b0221e486907ed
+
+       replace_hash(detail.USER_ID_hash, user_ids)
+    '''
+    replace_table = pd.Series(hash_id_table.index, index=hash_id_table.values)
+    return replace_table[hashes].values
+
 def ka_add_hash_feature(df, category_columns_list):
     '''Create hash column unique in your specified columns
 
