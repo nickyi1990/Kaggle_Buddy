@@ -15,7 +15,10 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
           column you want to compute stats, need to be a list with only one element
        methods_list: list_like
           methods that you want to use, all methods that supported by groupby in Pandas
-
+       keep_only_stats: boolean
+          only keep stats or return both raw columns and stats
+       verbose: int
+          1 return tick_tock info 0 do not return any info
        Return
        ------
        new pandas dataframe with original columns and new added columns
@@ -54,7 +57,7 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
         return df_new
 
-def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_feature=True, verbose=1):
+def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, keep_only_stats=True, verbose=1):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -64,7 +67,11 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_fe
        group_columns_list: list_like
           List of columns you want to group with, could be multiple columns
        agg_dict: python dictionary
-
+          Dictionay used to create stats variables
+       keep_only_stats: boolean
+          only keep stats or return both raw columns and stats
+       verbose: int
+          1 return tick_tock info 0 do not return any info
        Return
        ------
        new pandas dataframe with original columns and new added columns
@@ -94,7 +101,7 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, only_new_fe
         the_stats = grouped.agg(agg_dict)
         the_stats.columns = the_stats.columns.droplevel(0)
         the_stats.reset_index(inplace=True)
-        if only_new_feature:
+        if keep_only_stats:
             df_new = the_stats
         else:
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
