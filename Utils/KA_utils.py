@@ -77,7 +77,8 @@ def pickle_dump(data, filename):
 
 def pickle_load(filename):
     with open(filename, 'rb') as f:
-        return pickle.load(f)
+        # https://stackoverflow.com/questions/28218466/unpickling-a-python-2-object-with-python-3
+        return pickle.load(f, encoding='latin1')
 
 def ka_xgb_r2_error(preds, dtrain):
     labels = dtrain.get_label()
