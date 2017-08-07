@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 from sklearn.metrics import r2_score, confusion_matrix
 from sklearn.cross_validation import KFold
 from sklearn.model_selection import train_test_split
@@ -30,6 +31,9 @@ from sklearn.linear_model import LogisticRegression, ElasticNet, Lasso, Ridge
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
 from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
+def CLOSE_WARNING():
+    import warnings
+    warnings.filterwarnings('ignore')
 
 class tick_tock:
     def __init__(self, process_name, verbose=1):
