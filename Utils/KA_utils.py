@@ -31,9 +31,17 @@ from sklearn.linear_model import LogisticRegression, ElasticNet, Lasso, Ridge
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
 from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
-def CLOSE_WARNING():
-    import warnings
-    warnings.filterwarnings('ignore')
+class WARNINGS:
+    def __init__(self):
+        pass
+    @staticmethod
+    def CLOSE_WARNING():
+        import warnings
+        warnings.filterwarnings('ignore')
+    @staticmethod
+    def OPEN_WARNING():
+        import warnings
+        warnings.filterwarnings('default')
 
 class tick_tock:
     def __init__(self, process_name, verbose=1):
