@@ -5,6 +5,7 @@ import pickle
 import itertools
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 import matplotlib.pyplot as plt
 
 
@@ -17,7 +18,6 @@ from keras.optimizers import adam, sgd
 from keras.models import Model, Sequential
 from keras.callbacks import ModelCheckpoint, EarlyStopping, LearningRateScheduler
 from keras.layers import Dense, Dropout, Input, Embedding, Flatten, Merge, Reshape, BatchNormalization
-
 
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_rows', 500)
@@ -58,6 +58,7 @@ class tick_tock:
             print('time lapsing {0} s \n'.format(end_time - self.begin_time))
 
 
+
 class callbacks_keras:
     def __init__(self, filepath, model,
                  base_lr=1e-3, decay_rate=1,
@@ -84,15 +85,6 @@ class callbacks_keras:
         return K.get_value(self.model.optimizer.lr)
 
 
-def pickle_dump(data, filename):
-    with open(filename, 'wb') as f:
-        pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
-
-def pickle_load(filename):
-    with open(filename, 'rb') as f:
-        # https://stackoverflow.com/questions/28218466/unpickling-a-python-2-object-with-python-3
-        return pickle.load(f, encoding='latin1')
-
 def ka_xgb_r2_error(preds, dtrain):
     labels = dtrain.get_label()
     return 'error', r2_score(labels, preds)
@@ -102,8 +94,58 @@ def ka_xgb_r2_exp_error(preds, dtrain):
     preds = np.clip(np.exp(preds),0, 1e10)
     return 'error', r2_score(np.exp(labels), preds)
 
+
+
 def kaggle_points(n_teams, n_teammates, rank, t=1):
     return (100000 / np.sqrt(n_teammates)) * (rank ** (-0.75)) * (np.log10(1 + np.log10(n_teams))) * (np.e**(t/500))
+######################################################################################################
+# read and write file functions
+######################################################################################################
+def mkdir(path):
+    '''
+        If directory exsit, do not make any change
+        Else make a new directory
+    '''
+    try:
+        os.stat(path)
+    except:
+        os.mkdir(path)
+
+def pickle_dump_chunks(df, path, split_size=3, inplace=False):
+    """
+    path = '../output/mydf'
+
+    wirte '../output/mydf/0.p'
+          '../output/mydf/1.p'
+          '../output/mydf/2.p'
+
+    """
+    if inplace==True:
+        df.reset_index(drop=True, inplace=True)
+    else:
+        df = df.reset_index(drop=True)
+    mkdir(path)
+
+    for i in tqdm(range(split_size)):
+        df.ix[df.index%split_size==i].to_pickle(path+'/{}.p'.format(i))
+
+    return
+
+def pickle_load_chunks(path, col=None):
+    if col is None:
+        df = pd.concat([pd.read_pickle(f) for f in tqdm(sorted(glob(path+'/*')))])
+    else:
+        df = pd.concat([pd.read_pickle(f)[col] for f in tqdm(sorted(glob(path+'/*')))])
+    return df
+
+def pickle_dump(data, filename):
+    with open(filename, 'wb') as f:
+        pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
+
+def pickle_load(filename):
+    with open(filename, 'rb') as f:
+        # https://stackoverflow.com/questions/28218466/unpickling-a-python-2-object-with-python-3
+        return pickle.load(f, encoding='latin1')
 
 def ka_is_numpy(df):
     '''Check if a object is numpy
