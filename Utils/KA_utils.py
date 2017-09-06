@@ -57,8 +57,6 @@ class tick_tock:
             print(self.process_name + " end ......")
             print('time lapsing {0} s \n'.format(end_time - self.begin_time))
 
-
-
 class callbacks_keras:
     def __init__(self, filepath, model,
                  base_lr=1e-3, decay_rate=1,
@@ -84,7 +82,6 @@ class callbacks_keras:
             print("lr changed to {}".format(lr**self.decay_rate))
         return K.get_value(self.model.optimizer.lr)
 
-
 def ka_xgb_r2_error(preds, dtrain):
     labels = dtrain.get_label()
     return 'error', r2_score(labels, preds)
@@ -93,8 +90,6 @@ def ka_xgb_r2_exp_error(preds, dtrain):
     labels = dtrain.get_label()
     preds = np.clip(np.exp(preds),0, 1e10)
     return 'error', r2_score(np.exp(labels), preds)
-
-
 
 def kaggle_points(n_teams, n_teammates, rank, t=1):
     return (100000 / np.sqrt(n_teammates)) * (rank ** (-0.75)) * (np.log10(1 + np.log10(n_teams))) * (np.e**(t/500))

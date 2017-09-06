@@ -1,47 +1,14 @@
 import numpy as np
 import pandas as pd
 from IPython.display import display
+from IPython.display import display_html
 from pandas_summary import DataFrameSummary
 
-def ka_display_muti_tables_summary(tables, table_names):
-    '''display multi tables' summary
+####################################################################################
+##                              DISPLAY BLOCK
+####################################################################################
 
-        Parameters
-        ----------
-        tables: list_like
-                Pandas dataframes
-        table_names: list_like
-                     names of each dataframe
-    '''
-    for t, t_name in zip(tables, table_names):
-        print(t_name + ":")
-        display(DataFrameSummary(t).summary())
-
-def ka_display_muti_tables(tables, table_names, is_head=True, n=5):
-    '''Display multi tables' head
-
-        Parameters
-        ----------
-        tables: list_like
-                Pandas dataframes
-        table_names: list_like
-                     names of each dataframe
-        is_head: boolean
-                 If true display head else display tail
-        n: int
-           number of rows to display
-    '''
-    for t, t_name in zip(tables, table_names):
-        if is_head:
-            print(t_name + ":")
-            display(t.shape)
-            display(t.head(n=n))
-        else:
-            print(t_name + ":")
-            display(t.shape)
-            display(t.tail(n=n))
-
-def ka_display_col_type(data):
+def _ka_display_col_type(data):
     '''See column type distribution
 
        Parameters
@@ -56,24 +23,33 @@ def ka_display_col_type(data):
     column_type.columns = ["count", "column type"]
     return column_type.groupby(["column type"]).agg('count').reset_index()
 
-def ka_get_NC_col_names(data):
-    '''Get column names of category and numeric
+def ka_display_side_by_side(*args):
+    html_str=''
+    for df in args:
+        html_str+=df.to_html()
+    display_html(html_str.replace('table','table style="display:inline"'),raw=True)
+
+def ka_display_muti_tables_summary(tables, table_names, n=5):
+    '''display multi tables' summary
 
         Parameters
         ----------
-        data: dataframe
+        tables: list_like
+                Pandas dataframes
+        table_names: list_like
+                     names of each dataframe
 
-        Return:
-        ----------
-        numerics_cols: numeric column names
-        category_cols: category column names
-
+        Return
+        ------
+        1. show head of data
+        2. show column types of data
+        3. show summary of data
     '''
-    numerics_cols = data.select_dtypes(exclude=['O']).columns.tolist()
-    category_cols = data.select_dtypes(include=['O']).columns.tolist()
-    return numerics_cols, category_cols
+    for t, t_name in zip(tables, table_names):
+        print(t_name + ":", t.shape)
+        ka_display_side_by_side(t.head(n=n), _ka_display_col_type(t), DataFrameSummary(t).summary())
 
-def ka_look_missing_columns(data):
+def ka_display_missing_columns(data):
     '''show missing information
 
         Parameters
@@ -92,7 +68,7 @@ def ka_look_missing_columns(data):
 
     return df
 
-def ka_look_skewnewss(data):
+def ka_display_skewnewss(data):
     '''show skewness information
 
         Parameters
@@ -115,7 +91,7 @@ def ka_look_skewnewss(data):
 
     return df
 
-def ka_look_groupby_n_1_stats(X, y, iv_dv_pair, precent=25):
+def ka_display_groupby_n_1_stats(X, y, iv_dv_pair, precent=25):
     '''Evaluate statistical indicators in each category
 
        Parameters
@@ -142,21 +118,26 @@ def ka_look_groupby_n_1_stats(X, y, iv_dv_pair, precent=25):
 
     return _df_target.sort_values('mean', ascending=False)
 
-def ka_C_Binary_ratio(y, positive=1):
-    '''Find the positive ration of dependent variable
+####################################################################################
+##                              UNIVERSAL BLOCK
+####################################################################################
+
+def ka_get_NC_col_names(data):
+    '''Get column names of category and numeric
 
         Parameters
         ----------
-        y: pandas series
-           binary dependent variable
-        positive: 1 or 0
-                  identify which value is positive
+        data: dataframe
 
-        Return
-        ------
-        float value display positive rate
+        Return:
+        ----------
+        numerics_cols: numeric column names
+        category_cols: category column names
+
     '''
-    return y.value_counts()[positive] / (y.value_counts().sum())
+    numerics_cols = data.select_dtypes(exclude=['O']).columns.tolist()
+    category_cols = data.select_dtypes(include=['O']).columns.tolist()
+    return numerics_cols, category_cols
 
 def ka_verify_primary_key(data, column_list):
     '''Verify if columns in column list can be treat as primary key
@@ -175,3 +156,27 @@ def ka_verify_primary_key(data, column_list):
     '''
 
     return data.shape[0] == data.groupby(column_list).size().reset_index().shape[0]
+    
+####################################################################################
+##                              CATEGORICAL BLOCK
+####################################################################################
+
+def ka_C_Binary_ratio(y, positive=1):
+    '''Find the positive ration of dependent variable
+
+        Parameters
+        ----------
+        y: pandas series
+           binary dependent variable
+        positive: 1 or 0
+                  identify which value is positive
+
+        Return
+        ------
+        float value display positive rate
+    '''
+    return y.value_counts()[positive] / (y.value_counts().sum())
+
+####################################################################################
+##                              NUMERICAL BLOCK
+####################################################################################
