@@ -91,17 +91,17 @@ def ka_display_skewnewss(data):
 
     return df
 
-def ka_display_groupby_n_1_stats(X, y, iv_dv_pair, precent=25):
+def ka_display_groupby_n_1_stats(data, group_columns_list, target_columns_list):
     '''Evaluate statistical indicators in each category
 
        Parameters
        ----------
-       X: pandas dataframe
-          Features matrix, it should not contain columns has the same value with y
-       y: pandas dataframe
-          Labels
-       iv_dv_pair: list_like
-          independent variable and dependent variable, like ['category', 'target']
+       data: pandas dataframe
+          Features matrix
+       group_columns_list: list_like
+          List of columns you want to group with, could be multiple columns
+       target_columns_list: list_like
+          column you want to compute stats, need to be a list with only one element
 
        Return
        ------
@@ -109,14 +109,16 @@ def ka_display_groupby_n_1_stats(X, y, iv_dv_pair, precent=25):
 
        Example
        -------
-       ka_look_groupby_n_1_stats(train, y, ['x0','y'])
+       df = ka_display_groupby_n_1_stats(train, ['class'], ['translate_flag'])
     '''
-    _X_forplot = pd.concat([X, y], axis=1)
-    _df_target = pd.DataFrame(_X_forplot.groupby(iv_dv_pair[:-1])[iv_dv_pair[-1]].\
-                              agg([len, np.mean, np.median, np.min, np.max, np.std]).\
-                              sort_values('mean', ascending=False)).reset_index()
 
-    return _df_target.sort_values('mean', ascending=False)
+    grouped = data.groupby(group_columns_list)
+    df = grouped[target_columns_list].agg([len, np.mean, np.median, np.min, np.max, np.std]).reset_index()
+    df.columns = df.columns.droplevel(0)
+    df["percent"] = df.len * 100/ df.len.sum()
+    df["percent"] = pd.Series(["{0:.2f}%".format(val) for val in df['percent']], index = df.index)
+
+    return  df.sort_values('mean', ascending=False)
 
 ####################################################################################
 ##                              UNIVERSAL BLOCK
@@ -156,7 +158,7 @@ def ka_verify_primary_key(data, column_list):
     '''
 
     return data.shape[0] == data.groupby(column_list).size().reset_index().shape[0]
-    
+
 ####################################################################################
 ##                              CATEGORICAL BLOCK
 ####################################################################################

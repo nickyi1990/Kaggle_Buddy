@@ -2,9 +2,9 @@
 ### requirements
 numpy  
 pandas  
-Ipython
-pandas_summary
-sklearn
-tqdm
-keras
-matplotlib
+Ipython  
+pandas_summary  
+sklearn  
+tqdm  
+keras  
+matplotlib  
