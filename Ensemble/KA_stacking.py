@@ -39,6 +39,61 @@ class ka_stacking_generalization(object):
         self.kf_n = kf_n
         self.verbose = verbose
 
+    def run_lgbm_stacker(self, lgbm_params, num_boost_round):
+        '''Stacking for xgboost
+
+           Parameters
+           ----------
+           lgbm_params: python dictionary
+                lightgbm parameters
+           num_boost_round: int
+                number of boosting rounds
+
+           Return
+           ------
+           S_train: numpy array
+                            stacked training data
+           S_test: numpy array
+                            stacked testing data
+
+           Example
+           -------
+            params = {"learning_rate": 0.1
+                      ,"device":'gpu'
+                      ,'num_leaves':32
+                      ,'metric':'auc'
+                      ,'application':'binary'
+                      ,'gpu_use_dp': True
+                      ,'feature_fraction': 0.8
+                      ,'min_data_in_leaf': 10
+                      ,'bagging_fraction': 0.8
+                      ,'bagging_freq':25
+                      ,'lambda_l1': 1
+                      ,'max_depth': 4}
+
+            S_train, S_test = run_lgbm_stacker(xgb_params, 741)
+        '''
+        with tick_tock("add stats features", self.verbose):
+            d_test = lightgbm.Dataset(self.X_test)
+            n_folds = self.kf_n.n_folds
+            S_train = np.zeros_like(self.y)
+            S_test_i = np.zeros((self.y.shape[0], n_folds))
+
+            for i, (train_index, val_index) in enumerate(self.kf_n):
+                X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
+                y_train_cv = self.y[train_index]
+
+                d_train_fold = lightgbm.Dataset(X_train_cv, y_train_cv)
+                d_val_fold = lightgbm.Dataset(X_val_cv)
+
+                model_fold = lightgbm.train(lgbm_params, dtrain=d_train_fold, num_boost_round=num_boost_round)
+                S_train[val_index] = model_fold.predict(d_val_fold)
+                S_test_i[:, i] = model_fold.predict(d_test)
+
+            S_test = S_test_i.sum(axis=1) / n_folds
+
+            return S_train, S_test
+
     def run_xgboost_stacker(self, xgb_params, num_boost_round):
         '''Stacking for xgboost
 
