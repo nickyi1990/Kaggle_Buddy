@@ -2,6 +2,7 @@
 from ..Utils.KA_utils import tick_tock
 
 import xgboost
+import lightgbm
 import numpy as np
 import pandas as pd
 from sklearn.svm import SVC, SVR
