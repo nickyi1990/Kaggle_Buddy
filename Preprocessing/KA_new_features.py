@@ -2,6 +2,7 @@ from ..Utils.KA_utils import tick_tock
 import numpy as np
 import pandas as pd
 
+@deprecated
 def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, keep_only_stats=True, verbose=1):
     '''Create statistical columns, group by [N columns] and compute stats on [1 column]
 
@@ -57,7 +58,7 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
         return df_new
 
-def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, keep_only_stats=True, verbose=1):
+def ka_add_groupby_features(df, group_columns_list, method_dict, rename_dict, add_to_original_data=False, verbose=1):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -66,10 +67,12 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, keep_only_s
           Features matrix
        group_columns_list: list_like
           List of columns you want to group with, could be multiple columns
-       agg_dict: python dictionary
+       method_dict: python dictionary
           Dictionay used to create stats variables
-       keep_only_stats: boolean
-          only keep stats or return both raw columns and stats
+       rename_dict: python dictionary
+          Dictionay used to rename stats variables
+       add_to_original_data: boolean
+          only keep stats or add stats variable to raw data
        verbose: int
           1 return tick_tock info 0 do not return any info
        Return
@@ -78,12 +81,15 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, keep_only_s
 
        Example
        -------
-       {real_column_name: {your_specified_new_column_name : method}}
-       agg_dict = {'user_id':{'prod_tot_cnts':'count'},
-                   'reordered':{'reorder_tot_cnts_of_this_prod':'sum'},
-                   'user_buy_product_times': {'prod_order_once':lambda x: sum(x==1),
-                                              'prod_order_more_than_once':lambda x: sum(x==2)}}
-       ka_add_stats_features_1_vs_n(train, ['product_id'], agg_dict)
+       ka_add_groupby_features(data
+                               ,['class']
+                               ,{'before': 'count','translate_flag': 'mean'}
+                               ,{'before': 'translate_counts','translate_flag': 'translate_rate'})
+
+       Update
+       ------
+       2017/09/26: pandas 0.20.3 has deprecate using just a dict to rename and create stat variables
+       ,so I add another parameter method_list to fix this warning.
     '''
     with tick_tock("add stats features", verbose):
         try:
@@ -98,10 +104,9 @@ def ka_add_groupby_features_1_vs_n(df, group_columns_list, agg_dict, keep_only_s
         df_new = df.copy()
         grouped = df_new.groupby(group_columns_list)
 
-        the_stats = grouped.agg(agg_dict)
-        the_stats.columns = the_stats.columns.droplevel(0)
+        the_stats = grouped.agg(method_dict).rename(columns=rename_dict)
         the_stats.reset_index(inplace=True)
-        if keep_only_stats:
+        if not add_to_original_data:
             df_new = the_stats
         else:
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
