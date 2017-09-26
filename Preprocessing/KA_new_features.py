@@ -1,7 +1,6 @@
-from ..Utils.KA_utils import tick_tock, deprecated
-import warnings
 import numpy as np
 import pandas as pd
+from ..Utils.KA_utils import tick_tock, deprecated
 
 @deprecated
 def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, methods_list, keep_only_stats=True, verbose=1):
