@@ -72,7 +72,7 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
         return df_new
 
-def ka_add_groupby_features(df, group_columns_list, method_dict, rename_dict, add_to_original_data=False, verbose=1):
+def ka_add_groupby_features(df, group_columns_list, method_dict, rename_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features",):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -104,8 +104,10 @@ def ka_add_groupby_features(df, group_columns_list, method_dict, rename_dict, ad
        ------
        2017/09/26: pandas 0.20.3 has deprecate using just a dict to rename and create stat variables
        ,so I add another parameter method_list to fix this warning.
+
+       2017/9/27: add verbose_detail parameter, let user specify infos they want print.
     '''
-    with tick_tock("add stats features", verbose):
+    with tick_tock(verbose_detail, verbose):
         try:
             if type(group_columns_list) == list:
                 pass
