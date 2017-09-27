@@ -72,7 +72,7 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
         return df_new
 
-def ka_add_groupby_features(df, group_columns_list, method_dict, rename_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features",):
+def ka_create_groupby_features(df, group_columns_list, method_dict, rename_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features",):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
