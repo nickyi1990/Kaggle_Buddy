@@ -72,7 +72,7 @@ def ka_add_groupby_features_n_vs_1(df, group_columns_list, target_columns_list, 
             df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
         return df_new
 
-def ka_create_groupby_features(df, group_columns_list, method_dict, rename_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features",):
+def ka_create_groupby_features(df, group_columns_list, method_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features",):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -83,8 +83,6 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, rename_dict,
           List of columns you want to group with, could be multiple columns
        method_dict: python dictionary
           Dictionay used to create stats variables
-       rename_dict: python dictionary
-          Dictionay used to rename stats variables
        add_to_original_data: boolean
           only keep stats or add stats variable to raw data
        verbose: int
@@ -97,8 +95,7 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, rename_dict,
        -------
        ka_add_groupby_features(data
                                ,['class']
-                               ,{'before': 'count','translate_flag': 'mean'}
-                               ,{'before': 'translate_counts','translate_flag': 'translate_rate'})
+                               ,{'before': ['count','mean']})
 
        Update
        ------
@@ -106,6 +103,7 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, rename_dict,
        ,so I add another parameter method_list to fix this warning.
 
        2017/9/27: add verbose_detail parameter, let user specify infos they want print.
+       2017/10/8: generate column names automatic
     '''
     with tick_tock(verbose_detail, verbose):
         try:
@@ -120,7 +118,8 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, rename_dict,
         df_new = df.copy()
         grouped = df_new.groupby(group_columns_list)
 
-        the_stats = grouped.agg(method_dict).rename(columns=rename_dict)
+        the_stats = grouped.agg(method_dict)
+        the_stats.columns = ["_".join(x) for x in the_stats.columns.ravel()]
         the_stats.reset_index(inplace=True)
         if not add_to_original_data:
             df_new = the_stats
