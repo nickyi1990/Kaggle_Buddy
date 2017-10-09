@@ -119,7 +119,7 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, add_to_origi
         grouped = df_new.groupby(group_columns_list)
 
         the_stats = grouped.agg(method_dict)
-        the_stats.columns = ["_".join(x) for x in the_stats.columns.ravel()]
+        the_stats.columns = [group_columns_list[0] + '_G_' +"_".join(x) for x in the_stats.columns.ravel()]
         the_stats.reset_index(inplace=True)
         if not add_to_original_data:
             df_new = the_stats
