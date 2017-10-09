@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from scipy.stats import skew
 from IPython.display import display
 from IPython.display import display_html
 from pandas_summary import DataFrameSummary
