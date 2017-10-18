@@ -128,6 +128,55 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, add_to_origi
 
     return df_new
 
+def ka_create_groupby_features_old(df, group_columns_list, agg_dict, keep_only_stats=True, verbose=1):
+    '''Create statistical columns, group by [N columns] and compute stats on [N column]
+       Parameters
+       ----------
+       df: pandas dataframe
+          Features matrix
+       group_columns_list: list_like
+          List of columns you want to group with, could be multiple columns
+       agg_dict: python dictionary
+          Dictionay used to create stats variables
+       keep_only_stats: boolean
+          only keep stats or return both raw columns and stats
+       verbose: int
+          1 return tick_tock info 0 do not return any info
+       Return
+       ------
+       new pandas dataframe with original columns and new added columns
+       Example
+       -------
+       {real_column_name: {your_specified_new_column_name : method}}
+       agg_dict = {'user_id':{'prod_tot_cnts':'count'},
+                   'reordered':{'reorder_tot_cnts_of_this_prod':'sum'},
+                   'user_buy_product_times': {'prod_order_once':lambda x: sum(x==1),
+                                              'prod_order_more_than_once':lambda x: sum(x==2)}}
+       ka_add_stats_features_1_vs_n(train, ['product_id'], agg_dict)
+    '''
+    with tick_tock("add stats features", verbose):
+        try:
+            if type(group_columns_list) == list:
+                pass
+            else:
+                raise TypeError(k + "should be a list")
+        except TypeError as e:
+            print(e)
+            raise
+
+        df_new = df.copy()
+        grouped = df_new.groupby(group_columns_list)
+
+        the_stats = grouped.agg(agg_dict)
+        the_stats.columns = the_stats.columns.droplevel(0)
+        the_stats.reset_index(inplace=True)
+        if keep_only_stats:
+            df_new = the_stats
+        else:
+            df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
+
+    return df_new
+
 def ka_replace_hash(hashes, hash_id_table):
     '''Replace "hash in hashes" to "numeric index in hash_id_table"
 
