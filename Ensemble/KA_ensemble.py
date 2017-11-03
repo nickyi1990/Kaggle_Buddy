@@ -299,3 +299,25 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
 
             baggedpred += pred/bag_round
     return baggedpred
+
+
+
+
+ def ka_bagging_2class_or_reg_gbm(X_train, y_train, seed, bag_round, params
+                                  , X_test, using_notebook=True, num_boost_round=0):
+    '''
+        early version
+    '''
+    # create array object to hold predictions
+    baggedpred=np.zeros(shape=X_test.shape[0])
+    #loop for as many times as we want bags
+    if using_notebook:
+        for n in tqdm_notebook(range(0, bag_round)):
+            #shuffle first, aids in increasing variance and forces different results
+            X_train, y_train=shuffle(X_train, y_train, random_state=seed+n)
+            params['seed'] = seed + n
+            model = lightgbm.train(params, lightgbm.Dataset(X_train, y_train), num_boost_round=num_boost_round)
+            pred = model.predict(X_test)
+            baggedpred += pred/bag_round
+
+    return baggedpred
