@@ -1,11 +1,13 @@
 
-from ..Utils.KA_utils import tick_tock
+from ..Utils.KA_utils import tick_tock, callbacks_keras
 
 import xgboost
 import lightgbm
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 from sklearn.svm import SVC, SVR
+from sklearn.utils import shuffle
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
@@ -179,3 +181,96 @@ class ka_stacking_generalization(object):
                     S_test_i[:,j] = model.predict(self.X_test)[:]
                 S_test[:,i] = S_test_i.mean(1)
             return S_train, S_test
+
+
+
+def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round, X_test, update_seed=True, is_classification=True):
+    '''
+        Bagging for "2-class classification" model and "regression" model
+
+        Parameters
+        ----------
+        X_train: numpy array 2-dimension
+             training data for fitting model
+        X_test: numpy array 2-dimension
+             testing data for predict result
+        y: numpy array 1-dimension
+             training target
+        model: model instance
+        seed: int
+             random seed
+        bag_round: int
+             bagging rounds
+        update_seed: boolean
+             update model to generate difference result
+        is_classification: boolean
+             classfication will predict probability by default
+             regression only predict value
+
+       Return:
+       baggedpred: numpy array
+             bagged prediction
+
+
+       Example
+       -------
+       Regression:
+           from sklearn.datasets import load_boston
+           from sklearn.metrics import mean_squared_error
+
+           data = load_boston()
+           X = data.data
+           y = data.target
+           X_test = X.copy()
+
+           model = RandomForestRegressor()
+           pred_10 = bagging_2class_or_reg(X, y, model, 10, 10, X_test, is_classification=False)
+           pred_1 = bagging_2class_or_reg(X, y, model, 10, 1, X_test, is_classification=False)
+
+           print(mean_squared_error(y, pred_10)) # 1.38465739328
+           print(mean_squared_error(y, pred_1)) # 2.13027490119
+
+       Classification:
+           from sklearn.datasets import load_boston
+           from sklearn.metrics import roc_auc_score
+
+           data = load_boston()
+           X = data.data
+           y = data.target
+           X_test = X.copy()
+
+           model = RandomForestRegressor()
+           pred_10 = bagging_2class_or_reg(X, y, model, 10, 10, X_test, is_classification=False)
+           pred_1 = bagging_2class_or_reg(X, y, model, 10, 1, X_test, is_classification=False)
+
+           print(mean_squared_error(y, pred_10)) # 0.998868778281
+           print(mean_squared_error(y, pred_1)) # 0.993778280543
+
+
+    '''
+    # create array object to hold predictions
+    baggedpred=np.zeros(shape=X_test.shape[0])
+    #loop for as many times as we want bags
+    for n in tqdm(range(0, bag_round)):
+        #shuffle first, aids in increasing variance and forces different results
+        X_train, y_train=shuffle(X_train, y_train, random_state=seed+n)
+
+        # update seed if requested, to give a slightly different model
+        # model like knn does not have random_state parameter
+        if update_seed:
+            model.set_params(random_state=seed + n)
+
+        model.fit(X_train, y_train)
+        if is_classification:
+            pred = model.predict_proba(X_test) # predict probabilities
+            if pred.ndim == 1:
+                pass
+            elif pred.ndim == 2:
+                pred = pred[:,1]
+            else:
+                print("this is a n>2 category problem, stacker is only suitable for 2-class and regression")
+        else:
+            pred = model.predict(X_test)
+
+        baggedpred += pred/bag_round
+    return baggedpred
