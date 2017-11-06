@@ -379,8 +379,8 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
 
 
 
- def ka_bagging_2class_or_reg_gbm(X_train, y_train, seed, bag_round, params
-                                  , X_test, using_notebook=True, num_boost_round=0):
+def ka_bagging_2class_or_reg_gbm(X_train, y_train, seed, bag_round, params
+                                 , X_test, using_notebook=True, num_boost_round=0):
     '''
         early version
     '''
