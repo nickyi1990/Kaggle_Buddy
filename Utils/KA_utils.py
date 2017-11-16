@@ -11,8 +11,7 @@ import matplotlib.pyplot as plt
 
 
 from sklearn.metrics import r2_score, confusion_matrix
-from sklearn.cross_validation import KFold
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, KFold
 
 import keras.backend as K
 from keras.optimizers import adam, sgd
