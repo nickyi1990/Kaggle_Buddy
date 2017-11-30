@@ -15,6 +15,8 @@ from sklearn.linear_model import LogisticRegression, ElasticNet, Lasso, Ridge
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
 from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
+from lightgbm import callback
+
 class ka_stacking_generalization(object):
     def __init__(self, X_train, X_test, y_train, kf_n, verbose=1):
         '''Stacking for models except "neuron network" and "xgboost"
@@ -39,6 +41,7 @@ class ka_stacking_generalization(object):
         self.y_train = y_train
         self.kf_n = kf_n
         self.verbose = verbose
+        self.cv_info = {'lgbm_info':{'cv_scores':[], 'cv_rounds':[], 'cv_losses':[]}}
 
     def run_lgbm_stacker(self
                          , lgbm_params
@@ -54,6 +57,9 @@ class ka_stacking_generalization(object):
                 lightgbm parameters
            num_boost_round: int
                 number of boosting rounds
+                use as large as possible to overfitting, then decrese to see let CV and LB consistent.
+                check difference number like 50 100 to see if they have big difference in CV, if have, one
+                should notive underfitting
            early_stopping_rounds: int
                 number of early stopping round, if we do not want to use earlying stopping,
                 set ---> early_stopping_rounds > num_boost_round
@@ -82,11 +88,12 @@ class ka_stacking_generalization(object):
         '''
         with tick_tock("stacking", self.verbose):
             n_folds = self.kf_n.n_splits
-            cv_scores = []
+            self.cv_info['lgbm_info'] = {'cv_scores':[], 'cv_rounds':[], 'cv_losses':[]}
             S_train = np.zeros_like(self.y_train).astype(np.float32)
             S_test_i = np.zeros((self.X_test.shape[0], n_folds)).astype(np.float32)
 
             for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
+                losses = dict()
                 X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
                 y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
@@ -98,20 +105,40 @@ class ka_stacking_generalization(object):
                                             , valid_sets=d_val_fold
                                             , early_stopping_rounds=early_stopping_rounds
                                             , verbose_eval=lightgbm_verbose_eval
-                                            , num_boost_round=num_boost_round)
+                                            , num_boost_round=num_boost_round
+                                            , callbacks=[callback.record_evaluation(losses)])
                 pred_valid = model_fold.predict(X_valid_cv)
 
                 S_train[val_index] = pred_valid
                 S_test_i[:, i] = model_fold.predict(self.X_test)
 
                 score_tmp = score_metric(y_valid_cv, pred_valid)
-                cv_scores.append(score_tmp)
+                self.cv_info['lgbm_info']['cv_scores'].append(score_tmp)
+                self.cv_info['lgbm_info']['cv_rounds'].append(model_fold.best_iteration)
+                self.cv_info['lgbm_info']['cv_losses'].append(losses[list(losses.keys())[0]][list(losses[list(losses.keys())[0]].keys())[0]])
                 print("Fold:{} --> score:{}.".format(i, score_tmp))
 
             S_test = S_test_i.sum(axis=1) / n_folds
-            print("Mean:{}, Std:{}".format(np.mean(cv_scores), np.std(cv_scores)))
+            print("Mean:{}, Std:{}".format(np.mean(self.cv_info['lgbm_info']['cv_scores'])
+                                           , np.std(self.cv_info['lgbm_info']['cv_scores'])))
 
-            return S_train, S_test, cv_scores
+            return S_train, S_test
+
+
+    def plot_loss_curve(self, ax, info_type):
+        '''
+        _, ax = plt.subplots(nrows=3, ncols=2, figsize=[15,10])
+        info_type: 'lgbm_info'
+        '''
+        pic_ith = 0
+        for i in range(np.int(self.kf_n.n_splits / 2) + 1):
+            for j in range(2):
+                if((i+1)*(j+1) > self.kf_n.n_splits):
+                    continue
+                ax[i,j].set_title('round: ' + str(stack_generater.cv_info['lgbm_info']['cv_rounds'][pic_ith]) + \
+                          '  --  loss: ' + str(stack_generater.cv_info['lgbm_info']['cv_losses'][pic_ith][-1]))
+                ax[i,j].plot(stack_generater.cv_info[info_type]['cv_losses'][pic_ith])
+                pic_ith += 1
 
     def run_xgboost_stacker(self
                             , xgb_params
@@ -378,13 +405,13 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
             baggedpred += pred/bag_round
     return baggedpred
 
-def ka_bagging_2class_or_reg_gbm(X_train, y_train, seed, bag_round, params
+def ka_bagging_2class_or_reg_lgbm(X_train, y_train, seed, bag_round, params
                                  , X_test, using_notebook=True, num_boost_round=0):
     '''
         early version
     '''
     # create array object to hold predictions
-    baggedpred=np.zeros(shape=X_test.shape[0])
+    baggedpred=np.zeros(shape=X_test.shape[0]).astype(np.float32)
     #loop for as many times as we want bags
     if using_notebook:
         for n in tqdm_notebook(range(0, bag_round)):
