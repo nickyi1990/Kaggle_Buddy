@@ -135,9 +135,9 @@ class ka_stacking_generalization(object):
             for j in range(2):
                 if((i+1)*(j+1) > self.kf_n.n_splits):
                     continue
-                ax[i,j].set_title('round: ' + str(stack_generater.cv_info['lgbm_info']['cv_rounds'][pic_ith]) + \
-                          '  --  loss: ' + str(stack_generater.cv_info['lgbm_info']['cv_losses'][pic_ith][-1]))
-                ax[i,j].plot(stack_generater.cv_info[info_type]['cv_losses'][pic_ith])
+                ax[i,j].set_title('round: ' + str(self.cv_info['lgbm_info']['cv_rounds'][pic_ith]) + \
+                          '  --  loss: ' + str(self.cv_info['lgbm_info']['cv_losses'][pic_ith][-1]))
+                ax[i,j].plot(self.cv_info[info_type]['cv_losses'][pic_ith])
                 pic_ith += 1
 
     def run_xgboost_stacker(self
