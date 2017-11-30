@@ -16,29 +16,27 @@ from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifi
 from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
 class ka_stacking_generalization(object):
-    def __init__(self, X_train, X_test, y, kf_n, verbose=1):
+    def __init__(self, X_train, X_test, y_train, kf_n, verbose=1):
         '''Stacking for models except "neuron network" and "xgboost"
 
            Parameters
            ----------
-           X_train: pandas dataframe
+           X_train: numpy array
                 training data
-           X_test: pandas dataframe
+           X_test: numpy array
                 testing data
-           y: pandas series
+           y_train: numpy array
                 training target
-           xgb_params: python dictionary
-                xgboost parameters
-           num_boost_round: int
-                number of boosting rounds
-           kf_n: KFold object
+           kf_n: KFold object from model_selection model
 
-
-           kf_5 = KFold(data_train.shape[0], n_folds=5, shuffle=True, random_state=1024)
+           Example
+           -------
+           kf_5 = KFold(n_splits=5, random_state=413, shuffle=True)
+           stack_generater = ka_stacking_generalization(X.values, X_test.values, y.values, kf_5)
         '''
         self.X_train = X_train
         self.X_test = X_test
-        self.y = y
+        self.y_train = y_train
         self.kf_n = kf_n
         self.verbose = verbose
 
@@ -47,7 +45,7 @@ class ka_stacking_generalization(object):
                          , num_boost_round
                          , early_stopping_rounds
                          , lightgbm_verbose_eval
-                         , verbose=1):
+                         , score_metric):
         '''Stacking for xgboost
 
            Parameters
@@ -59,8 +57,8 @@ class ka_stacking_generalization(object):
            early_stopping_rounds: int
                 number of early stopping round, if we do not want to use earlying stopping,
                 set ---> early_stopping_rounds > num_boost_round
-
-
+           lightgbm_verbose_eval: 0 1 2
+                verbose parameter in lightgbm
            Return
            ------
            S_train: numpy array
@@ -69,31 +67,28 @@ class ka_stacking_generalization(object):
                             stacked testing data
            Example
            -------
-            params = {"learning_rate": 0.1
-                      ,"device":'gpu'
-                      ,'num_leaves':32
-                      ,'metric':'auc'
-                      ,'application':'binary'
-                      ,'gpu_use_dp': True
-                      ,'feature_fraction': 0.8
-                      ,'min_data_in_leaf': 10
-                      ,'bagging_fraction': 0.8
-                      ,'bagging_freq':25
-                      ,'lambda_l1': 1
-                      ,'max_depth': 4}
+           params = {'application': 'binary'
+                     ,'learning_rate': 0.05
+                     ,'metric': 'auc'
+                     ,'feature_fraction': 0.8
+                     ,'bagging_fraction': 0.8
+                     ,'bagging_freq': 2
+                     ,'num_leaves': 80
+                     ,'max_depth': -1
+                     ,'lambda_l2':5
+                     ,'min_data_in_leaf': 10}
 
-            S_train, S_test = run_lgbm_stacker(xgb_params, 741)
+           S_train, S_test, cv_scores = stack_generater.run_lgbm_stacker(params, 2000, 30, 0, roc_auc_score)
         '''
         with tick_tock("stacking", self.verbose):
-            n_folds = self.kf_n.n_folds
-            S_train = np.zeros_like(self.y)
-            S_test_i = np.zeros((self.X_test.shape[0], n_folds))
+            n_folds = self.kf_n.n_splits
+            cv_scores = []
+            S_train = np.zeros_like(self.y_train).astype(np.float32)
+            S_test_i = np.zeros((self.X_test.shape[0], n_folds)).astype(np.float32)
 
-            for i, (train_index, val_index) in enumerate(self.kf_n):
-                if verbose > 0:
-                    print('lightgbm is stacking fold {0} ....'.format(i+1))
+            for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
                 X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
-                y_train_cv, y_valid_cv = self.y[train_index], self.y[val_index]
+                y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                 d_train_fold = lightgbm.Dataset(X_train_cv, y_train_cv)
                 d_val_fold = lightgbm.Dataset(X_val_cv, y_valid_cv)
@@ -104,12 +99,19 @@ class ka_stacking_generalization(object):
                                             , early_stopping_rounds=early_stopping_rounds
                                             , verbose_eval=lightgbm_verbose_eval
                                             , num_boost_round=num_boost_round)
-                S_train[val_index] = model_fold.predict(X_val_cv)
+                pred_valid = model_fold.predict(X_val_cv)
+
+                S_train[val_index] = pred_valid
                 S_test_i[:, i] = model_fold.predict(self.X_test)
 
-            S_test = S_test_i.sum(axis=1) / n_folds
+                score_tmp = score_metric(y_valid_cv, pred_valid)
+                cv_scores.append(score_tmp)
+                print("Fold:{} --> score:{}.".format(i, score_tmp))
 
-            return S_train, S_test
+            S_test = S_test_i.sum(axis=1) / n_folds
+            print("Mean:{}, Std:{}".format(np.mean(cv_scores), np.std(cv_scores)))
+
+            return S_train, S_test, cv_scores
 
     def run_xgboost_stacker(self
                             , xgb_params
