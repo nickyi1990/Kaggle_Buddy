@@ -87,11 +87,11 @@ class ka_stacking_generalization(object):
             S_test_i = np.zeros((self.X_test.shape[0], n_folds)).astype(np.float32)
 
             for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
-                X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
+                X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
                 y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                 d_train_fold = lightgbm.Dataset(X_train_cv, y_train_cv)
-                d_val_fold = lightgbm.Dataset(X_val_cv, y_valid_cv)
+                d_val_fold = lightgbm.Dataset(X_valid_cv, y_valid_cv)
 
                 model_fold = lightgbm.train(lgbm_params
                                             , train_set=d_train_fold
@@ -99,7 +99,7 @@ class ka_stacking_generalization(object):
                                             , early_stopping_rounds=early_stopping_rounds
                                             , verbose_eval=lightgbm_verbose_eval
                                             , num_boost_round=num_boost_round)
-                pred_valid = model_fold.predict(X_val_cv)
+                pred_valid = model_fold.predict(X_valid_cv)
 
                 S_train[val_index] = pred_valid
                 S_test_i[:, i] = model_fold.predict(self.X_test)
