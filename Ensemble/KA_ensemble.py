@@ -106,7 +106,7 @@ class ka_stacking_generalization(object):
                                             , early_stopping_rounds=early_stopping_rounds
                                             , verbose_eval=lightgbm_verbose_eval
                                             , num_boost_round=num_boost_round
-                                            , callbacks=[callback.record_evaluation(losses)])
+                                            , callbacks=[lightgbm.callback.record_evaluation(losses)])
                 pred_valid = model_fold.predict(X_valid_cv)
 
                 S_train[val_index] = pred_valid
