@@ -255,7 +255,7 @@ class ka_stacking_generalization(object):
             S_test = S_test_i.sum(axis=1) / n_folds
             return S_train, S_test
 
-    def run_other_stackers(self, base_models):
+    def run_other_stackers(self, base_models, score_metric):
         '''Stacking for sklearn mdoels
            Parameters
            ----------
@@ -270,22 +270,32 @@ class ka_stacking_generalization(object):
                             stacked testing data
         '''
         with tick_tock("fitting stacking", self.verbose):
-            S_train = np.zeros((self.X_train.shape[0], len(base_models)))
-            S_test = np.zeros((self.X_test.shape[0], len(base_models)))
+            S_train = np.zeros((self.X_train.shape[0], len(base_models))).astype(np.float32)
+            S_test = np.zeros((self.X_test.shape[0], len(base_models))).astype(np.float32)
+            n_folds = self.kf_n.n_splits
+            cv_scores = []
 
             print ("Fitting base models begin")
             for i, model in enumerate(base_models):
                 print ("Fitting the {0} th base models".format(i))
-                S_test_i = np.zeros((self.X_test.shape[0], self.kf_n.n_folds))
-                for j, (train_index, val_index) in enumerate(self.kf_n):
-                    X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
-                    y_train_cv = self.y[train_index]
+                S_test_i = np.zeros((self.X_test.shape[0], n_folds))
+                for j, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
+                    X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
+                    y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                     model.fit(X_train_cv, y_train_cv)
-                    y_pred = model.predict_proba(X_val_cv)[:,1]
-                    S_train[val_index,i] = y_pred
+                    pred_valid = model.predict_proba(X_valid_cv)[:,1]
+                    score_tmp = score_metric(y_valid_cv, pred_valid)
+                    cv_scores.append(score_tmp)
+
+                    S_train[val_index,i] = pred_valid
                     S_test_i[:,j] = model.predict_proba(self.X_test)[:,1]
+
+                    print("Fold:{} --> score:{}.".format(i, score_tmp))
                 S_test[:,i] = S_test_i.mean(1)
+
+            print("Mean:{}, Std:{}".format(np.mean(cv_scores)
+                                           , np.std(cv_scores)))
             return S_train, S_test
 
 
