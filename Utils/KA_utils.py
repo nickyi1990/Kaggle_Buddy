@@ -14,6 +14,8 @@ from sklearn.metrics import *
 from sklearn.model_selection import *
 from sklearn.preprocessing import *
 
+from scipy.stats import rankdata
+from scipy.special import erfinv
 
 import keras.backend as K
 from keras.optimizers import adam, sgd
@@ -92,6 +94,11 @@ def ka_xgb_r2_exp_error(preds, dtrain):
     labels = dtrain.get_label()
     preds = np.clip(np.exp(preds),0, 1e10)
     return 'error', r2_score(np.exp(labels), preds)
+
+def ka_erfinv_rank_transform(x):
+    tmp = erfinv(np.clip(np.squeeze(mm.fit_transform(rankdata(x).reshape(-1,1))), 0, 0.999999999))
+    tmp = tmp - np.mean(tmp)
+    return tmp
 
 def kaggle_points(n_teams, n_teammates, rank, t=1):
     return (100000 / np.sqrt(n_teammates)) * (rank ** (-0.75)) * (np.log10(1 + np.log10(n_teams))) * (np.e**(t/500))
