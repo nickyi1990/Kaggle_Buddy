@@ -211,8 +211,10 @@ class ka_stacking_generalization(object):
                        , batch_size
                        , saved_path
                        , saved_file_name
-                       , patience
                        , score_metric
+                       , patience = 5
+                       , decay_rate = 1
+                       , decay_after_n_epoch = 10
                        , verbose_nn = 2
                        ):
         '''
@@ -250,7 +252,7 @@ class ka_stacking_generalization(object):
                 y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                 callbacks_ins = callbacks_keras(saved_path + saved_file_name + '_v'+ str(i) + ".p"
-                                                , model, patience=patience)
+                                                , model, patience=patience, decay_rate=decay_rate, decay_after_n_epoch=decay_after_n_epoch)
                 model.fit(X_train_cv,y_train_cv, callbacks=callbacks_ins.callbacks
                           ,validation_data=[X_valid_cv, y_valid_cv]
                           ,epochs=epochs, batch_size=batch_size, verbose=verbose_nn)
