@@ -10,8 +10,10 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 
 
-from sklearn.metrics import r2_score, confusion_matrix
-from sklearn.model_selection import train_test_split, KFold
+from sklearn.metrics import *
+from sklearn.model_selection import *
+from sklearn.preprocessing import *
+
 
 import keras.backend as K
 from keras.optimizers import adam, sgd
