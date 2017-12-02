@@ -313,6 +313,87 @@ class ka_stacking_generalization(object):
                                            , np.std(cv_scores)))
             return S_train, S_test
 
+    def run_nn_embedding_stacker(self
+                       , build_model
+                       , epochs
+                       , batch_size
+                       , saved_path
+                       , saved_file_name
+                       , embedded_col_index
+                       , score_metric
+                       , patience = 5
+                       , decay_rate = 1
+                       , decay_after_n_epoch = 10
+                       , verbose_nn = 2
+                       ):
+        '''
+
+        Example:
+        -------
+        def build_model(embedded_info):
+            models = []
+
+            model_embedded_1 = Sequential()
+            model_embedded_1.add(Embedding(embedded_info[0], embedded_info[0]-1, input_length=1))
+            model_embedded_1.add(Reshape(target_shape=(embedded_info[0]-1,)))
+            models.append(model_embedded_1)
+
+            model_rest = Sequential()
+            model_rest.add(Dense(63, input_dim=64))
+            models.append(model_rest)
+
+            model = Sequential()
+            model.add(Merge(models, mode='concat'))
+            model.add(Dense(256, activation='relu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.4))
+            model.add(Dense(128, activation='elu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.3))
+            model.add(Dense(64, activation='elu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.2))
+            model.add(Dense(32, activation='elu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.1))
+            model.add(Dense(1, activation='sigmoid'))
+
+            model.compile(loss='binary_crossentropy', optimizer='adam') model must be compiled
+            return model
+        S_train, S_test = stack_generater.run_nn_stacker(build_model, 50, 128, PATH_DATA_MODEL, "nn_fold", 5, roc_auc_score, 0)
+        '''
+        with tick_tock("stacking", self.verbose):
+            n_folds = self.kf_n.n_splits
+            S_train = np.zeros_like(self.y_train).astype(np.float32)
+            S_test_i = np.zeros((self.X_test.shape[0], n_folds)).astype(np.float32)
+            cv_scores = []
+
+            for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
+
+                X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
+                y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
+
+                X_train_list, X_valid_list, X_test_list, embedded_info = \
+                prepare_embedding_data(X_train_cv, X_valid_cv, self.X_test, embedded_col_index)
+                model = build_model(embedded_info)
+                callbacks_ins = callbacks_keras(saved_path + saved_file_name + '_v'+ str(i) + ".p"
+                                                , model, patience=patience, decay_rate=decay_rate, decay_after_n_epoch=decay_after_n_epoch)
+                model.fit(X_train_list, y_train_cv, callbacks=callbacks_ins.callbacks
+                          ,validation_data=[X_valid_list, y_valid_cv]
+                          ,epochs=epochs, batch_size=batch_size, verbose=verbose_nn)
+
+                model.load_weights(saved_path + saved_file_name + '_v'+ str(i) + ".p")
+                S_train[val_index] = np.squeeze(model.predict(X_valid_list))
+                score_tmp = score_metric(y_valid_cv, S_train[val_index])
+                cv_scores.append(score_tmp)
+
+                S_test_i[:, i] = np.squeeze(model.predict(X_test_list))
+                print("Fold:{} --> score:{}.".format(i, score_tmp))
+
+            S_test = S_test_i.sum(axis=1) / n_folds
+            print("Mean:{}, Std:{}".format(np.mean(cv_scores)
+                                           , np.std(cv_scores)))
+            return S_train, S_test
 
 def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
                             , X_test, update_seed=True, is_classification=True, using_notebook=True):
