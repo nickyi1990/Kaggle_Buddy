@@ -212,47 +212,60 @@ class ka_stacking_generalization(object):
                        , saved_path
                        , saved_file_name
                        , patience
+                       , score_metric
                        , verbose_nn = 2
-                       , verbose=1):
-        '''Stacking for neural network
+                       ):
+        '''
 
-           Parameters
-           ----------
-
-           Return
-           ------
-           S_train: numpy array
-                            stacked training data
-           S_test: numpy array
-                            stacked testing data
-
-           Example
-           -------
-            S_train, S_test = run_lgbm_stacker(xgb_params, 741)
+        Example:
+        -------
+        def build_model():
+            model = Sequential()
+            model.add(Dense(256, input_shape=(X_train.shape[1],), activation='relu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.4))
+            model.add(Dense(128, activation='elu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.3))
+            model.add(Dense(64, activation='elu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.2))
+            model.add(Dense(32, activation='elu'))
+            model.add(BatchNormalization())
+            model.add(Dropout(0.1))
+            model.add(Dense(1, activation='sigmoid'))
+            model.compile(loss='binary_crossentropy', optimizer='adam') model must be compiled
+            return model
+        S_train, S_test = stack_generater.run_nn_stacker(build_model, 50, 128, PATH_DATA_MODEL, "nn_fold", 5, roc_auc_score, 0)
         '''
         with tick_tock("stacking", self.verbose):
-            n_folds = self.kf_n.n_folds
-            S_train = np.zeros_like(self.y)
-            S_test_i = np.zeros((self.X_test.shape[0], n_folds))
+            n_folds = self.kf_n.n_splits
+            S_train = np.zeros_like(self.y_train).astype(np.float32)
+            S_test_i = np.zeros((self.X_test.shape[0], n_folds)).astype(np.float32)
+            cv_scores = []
 
-            for i, (train_index, val_index) in enumerate(self.kf_n):
+            for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
                 model = build_model()
-                if verbose > 0:
-                    print('neural network is stacking fold {0} ....'.format(i+1))
-                X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
-                y_train_cv, y_valid_cv = self.y[train_index], self.y[val_index]
+                X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
+                y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                 callbacks_ins = callbacks_keras(saved_path + saved_file_name + '_v'+ str(i) + ".p"
                                                 , model, patience=patience)
                 model.fit(X_train_cv,y_train_cv, callbacks=callbacks_ins.callbacks
-                          ,validation_data=[X_val_cv, y_valid_cv]
+                          ,validation_data=[X_valid_cv, y_valid_cv]
                           ,epochs=epochs, batch_size=batch_size, verbose=verbose_nn)
 
                 model.load_weights(saved_path + saved_file_name + '_v'+ str(i) + ".p")
-                S_train[val_index] = np.squeeze(model.predict(X_val_cv))
+                S_train[val_index] = np.squeeze(model.predict(X_valid_cv))
+                score_tmp = score_metric(y_valid_cv, S_train[val_index])
+                cv_scores.append(score_tmp)
+
                 S_test_i[:, i] = np.squeeze(model.predict(self.X_test))
+                print("Fold:{} --> score:{}.".format(i, score_tmp))
 
             S_test = S_test_i.sum(axis=1) / n_folds
+            print("Mean:{}, Std:{}".format(np.mean(cv_scores)
+                                           , np.std(cv_scores)))
             return S_train, S_test
 
     def run_other_stackers(self, base_models, score_metric):
