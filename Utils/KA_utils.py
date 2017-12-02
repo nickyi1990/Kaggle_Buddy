@@ -96,6 +96,10 @@ def ka_xgb_r2_exp_error(preds, dtrain):
     return 'error', r2_score(np.exp(labels), preds)
 
 def ka_erfinv_rank_transform(x):
+    '''
+        This is used on numeric variable, after doing this operation, one should do MM and SS on all dataset.
+    '''
+    mm = MinMaxScaler()
     tmp = erfinv(np.clip(np.squeeze(mm.fit_transform(rankdata(x).reshape(-1,1))), 0, 0.999999999))
     tmp = tmp - np.mean(tmp)
     return tmp
