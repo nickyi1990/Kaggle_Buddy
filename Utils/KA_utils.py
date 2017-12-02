@@ -83,7 +83,7 @@ class callbacks_keras:
         if epoch%self.decay_after_n_epoch==0 and epoch!=0:
             lr = K.get_value(self.model.optimizer.lr)
             K.set_value(self.model.optimizer.lr, lr*self.decay_rate)
-            print("lr changed to {}".format(lr**self.decay_rate))
+            print("lr changed to {}".format(lr*self.decay_rate))
         return K.get_value(self.model.optimizer.lr)
 
 def ka_xgb_r2_error(preds, dtrain):
