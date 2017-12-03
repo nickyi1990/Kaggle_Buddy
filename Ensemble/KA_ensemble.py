@@ -1,5 +1,5 @@
 
-from ..Utils.KA_utils import tick_tock, callbacks_keras
+from ..Utils.KA_utils import tick_tock, callbacks_keras, LabelEncoder
 
 import xgboost
 import lightgbm
