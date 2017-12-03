@@ -124,7 +124,6 @@ class ka_stacking_generalization(object):
 
             return S_train, S_test
 
-
     def plot_loss_curve(self, ax, info_type):
         '''
         _, ax = plt.subplots(nrows=3, ncols=2, figsize=[15,10])
@@ -374,7 +373,7 @@ class ka_stacking_generalization(object):
                 y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                 X_train_list, X_valid_list, X_test_list, embedded_info = \
-                prepare_embedding_data(X_train_cv, X_valid_cv, self.X_test, embedded_col_index)
+                self.prepare_embedding_data(X_train_cv, X_valid_cv, self.X_test, embedded_col_index)
                 model = build_model(embedded_info)
                 callbacks_ins = callbacks_keras(saved_path + saved_file_name + '_v'+ str(i) + ".p"
                                                 , model, patience=patience, decay_rate=decay_rate, decay_after_n_epoch=decay_after_n_epoch)
@@ -394,6 +393,44 @@ class ka_stacking_generalization(object):
             print("Mean:{}, Std:{}".format(np.mean(cv_scores)
                                            , np.std(cv_scores)))
             return S_train, S_test
+
+    @staticmethod
+    def prepare_embedding_data(X_train, X_valid, X_test, embedded_col_indexs):
+        '''
+            Parameters
+            ----------
+            X_train: numpy array
+            X_valid: numpy array
+            X_test: numpy array
+            embedded_cols: list
+                col indexs going tobe embedd
+        '''
+        data = np.concatenate([X_train, X_valid, X_test])
+        normal_col_indexs = list(range(data.shape[1]))
+        for index in embedded_col_indexs:
+            normal_col_indexs.remove(index)
+
+
+        X_train_list = []
+        X_valid_list = []
+        X_test_list = []
+        embedded_info = dict()
+        for i, col in enumerate(embedded_col_indexs):
+            le = LabelEncoder()
+            le.fit(data[:,col])
+            tmp_train = le.transform(X_train[:,col])
+            tmp_valid = le.transform(X_valid[:,col])
+            tmp_test = le.transform(X_test[:,col])
+            X_train_list.append(tmp_train)
+            X_valid_list.append(tmp_valid)
+            X_test_list.append(tmp_test)
+            embedded_info[i] = le.classes_.shape[0]
+
+        X_train_list.append(X_train[:, normal_col_indexs])
+        X_valid_list.append(X_valid[:, normal_col_indexs])
+        X_test_list.append(X_test[:, normal_col_indexs])
+
+        return X_train_list, X_valid_list, X_test_list, embedded_info
 
 def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
                             , X_test, update_seed=True, is_classification=True, using_notebook=True):
