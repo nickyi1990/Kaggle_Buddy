@@ -144,51 +144,20 @@ class ka_stacking_generalization(object):
                             , num_boost_round
                             , early_stopping_rounds
                             , xgboost_verbose_eval
+                            , score_metric
                             , verbose=1):
-        '''Stacking for xgboost
-
-           Parameters
-           ----------
-           xgb_params: python dictionary
-                xgboost parameters
-           num_boost_round: int
-                number of boosting rounds
-
-           Return
-           ------
-           S_train: numpy array
-                            stacked training data
-           S_test: numpy array
-                            stacked testing data
-
-           Example
-           -------
-           xgb_params = {
-                'eta': 0.01,
-                'max_depth': 3,
-                'objective': 'reg:linear',
-                'eval_metric': 'rmse',
-                'tree_method': 'hist',
-                'colsample_bytree': 0.5,
-                'base_score': data_train.y.mean(), # base prediction = mean(target)
-                'silent': 1
-            }
-
-            S_train, S_test = run_xgboost_stacker(xgb_params, 741)
-        '''
         with tick_tock("stacking", self.verbose):
             d_test = xgboost.DMatrix(self.X_test)
-            n_folds = self.kf_n.n_folds
-            S_train = np.zeros_like(self.y)
-            S_test_i = np.zeros((self.X_test.shape[0], n_folds))
+            n_folds = self.kf_n.n_splits
+            S_train = np.zeros_like(self.y_train).astype(np.float32)
+            S_test_i = np.zeros((self.X_test.shape[0], n_folds)).astype(np.float32)
+            cv_scores = []
 
-            for i, (train_index, val_index) in enumerate(self.kf_n):
-                if verbose > 0:
-                    print('xgboost is stacking fold {0} ....'.format(i+1))
-                X_train_cv, X_val_cv = self.X_train[train_index], self.X_train[val_index]
-                y_train_cv, y_valid_cv = self.y[train_index], self.y[val_index]
+            for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
+                X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
+                y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
                 d_train_fold = xgboost.DMatrix(X_train_cv, y_train_cv)
-                d_val_fold = xgboost.DMatrix(X_val_cv, y_valid_cv)
+                d_val_fold = xgboost.DMatrix(X_valid_cv, y_valid_cv)
                 watchlist = [(d_train_fold,'train'),(d_val_fold,'eval')]
 
                 model_fold = xgboost.train(xgb_params
@@ -198,10 +167,13 @@ class ka_stacking_generalization(object):
                                            , dtrain=d_train_fold
                                            , num_boost_round=num_boost_round)
                 S_train[val_index] = model_fold.predict(d_val_fold)
+                score_tmp = score_metric(y_valid_cv, S_train[val_index])
+                cv_scores.append(score_tmp)
                 S_test_i[:, i] = model_fold.predict(d_test)
+                print("Fold:{} --> score:{}.".format(i, score_tmp))
 
             S_test = S_test_i.sum(axis=1) / n_folds
-
+            print("Mean:{}, Std:{}".format(np.mean(cv_scores), np.std(cv_scores)))
             return S_train, S_test
 
     def run_nn_stacker(self
