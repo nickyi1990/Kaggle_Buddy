@@ -247,10 +247,11 @@ class ka_stacking_generalization(object):
             cv_scores = []
 
             for i, (train_index, val_index) in enumerate(self.kf_n.split(self.X_train, self.y_train)):
-                model = build_model()
+
                 X_train_cv, X_valid_cv = self.X_train[train_index], self.X_train[val_index]
                 y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
+                model = build_model(X_train_cv.shape[1])
                 callbacks_ins = callbacks_keras(saved_path + saved_file_name + '_v'+ str(i) + ".p"
                                                 , model, patience=patience, decay_rate=decay_rate, decay_after_n_epoch=decay_after_n_epoch)
                 model.fit(X_train_cv,y_train_cv, callbacks=callbacks_ins.callbacks
@@ -266,8 +267,7 @@ class ka_stacking_generalization(object):
                 print("Fold:{} --> score:{}.".format(i, score_tmp))
 
             S_test = S_test_i.sum(axis=1) / n_folds
-            print("Mean:{}, Std:{}".format(np.mean(cv_scores)
-                                           , np.std(cv_scores)))
+            print("Mean:{}, Std:{}".format(np.mean(cv_scores), np.std(cv_scores)))
             return S_train, S_test
 
     def run_other_stackers(self, base_models, score_metric):
