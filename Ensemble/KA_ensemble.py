@@ -270,14 +270,18 @@ class ka_stacking_generalization(object):
                     y_train_cv, y_valid_cv = self.y_train[train_index], self.y_train[val_index]
 
                     model.fit(X_train_cv, y_train_cv)
-                    pred_valid = model.predict_proba(X_valid_cv)[:,1]
+                    try:
+                        pred_valid = model.predict_proba(X_valid_cv)[:,1]
+                    except:
+                        pred_valid = model.predict(X_valid_cv)
+
                     score_tmp = score_metric(y_valid_cv, pred_valid)
                     cv_scores.append(score_tmp)
 
                     S_train[val_index,i] = pred_valid
                     S_test_i[:,j] = model.predict_proba(self.X_test)[:,1]
 
-                    print("Fold:{} --> score:{}.".format(i, score_tmp))
+                    print("Fold:{} --> score:{}.".format(j, score_tmp))
                 S_test[:,i] = S_test_i.mean(1)
 
             print("Mean:{}, Std:{}".format(np.mean(cv_scores)
