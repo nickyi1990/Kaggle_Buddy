@@ -7,6 +7,7 @@ import itertools
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
+from itertools import islice
 import matplotlib.pyplot as plt
 
 
@@ -118,6 +119,12 @@ def mkdir(path):
         os.stat(path)
     except:
         os.mkdir(path)
+
+def ka_dict_head(dic, n):
+    '''
+        first n rows of a dictionary
+    '''
+    return list(islice(dic, 2))
 
 def pickle_dump_chunks(df, path, split_size=3, inplace=False):
     """
