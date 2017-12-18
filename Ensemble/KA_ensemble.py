@@ -2,7 +2,10 @@
 from ..Utils.KA_utils import tick_tock, callbacks_keras, LabelEncoder
 
 import xgboost
+
 import lightgbm
+from lightgbm import callback
+
 import numpy as np
 import pandas as pd
 from tqdm import tqdm, tqdm_notebook
@@ -15,7 +18,7 @@ from sklearn.linear_model import LogisticRegression, ElasticNet, Lasso, Ridge
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
 from sklearn.ensemble import AdaBoostClassifier, AdaBoostRegressor, ExtraTreesClassifier, ExtraTreesRegressor
 
-from lightgbm import callback
+
 
 class ka_stacking_generalization(object):
     def __init__(self, X_train, X_test, y_train, kf_n, verbose=1):
@@ -380,6 +383,11 @@ class ka_stacking_generalization(object):
             X_test: numpy array
             embedded_cols: list
                 col indexs going tobe embedd
+
+
+            Return
+            ------
+            embedded_info: return unique values of each embedding
         '''
         data = np.concatenate([X_train, X_valid, X_test])
         normal_col_indexs = list(range(data.shape[1]))
