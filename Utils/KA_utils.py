@@ -124,7 +124,7 @@ def ka_dict_head(dic, n):
     '''
         first n rows of a dictionary
     '''
-    return list(islice(dic, 2))
+    return list(islice(dic, n))
 
 def pickle_dump_chunks(df, path, split_size=3, inplace=False):
     """
