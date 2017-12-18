@@ -126,6 +126,13 @@ def ka_dict_head(dic, n):
     '''
     return list(islice(dic, n))
 
+def ka_sort_dict(a, by_key=False, reverse=False):
+    '''
+        sort dictionary by item or key.
+    '''
+    sorted_x = sorted(a.items(), key=operator.itemgetter(1-by_key), reverse=reverse)
+    return sorted_x
+
 def pickle_dump_chunks(df, path, split_size=3, inplace=False):
     """
     path = '../output/mydf'
