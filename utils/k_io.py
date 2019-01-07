@@ -28,10 +28,29 @@ def pickle_load_chunks(path, col=None):
     return df
 
 def pickle_dump(data, filename):
+    """
+    Parameters
+    ----------
+    data : any object
+    filename : string
+
+    Returns
+    -------
+    None
+    """
     with open(filename, 'wb') as f:
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 def pickle_load(filename):
+    """
+    Parameters
+    ----------
+    filename : string
+
+    Returns
+    -------
+    None
+    """
     with open(filename, 'rb') as f:
         # https://stackoverflow.com/questions/28218466/unpickling-a-python-2-object-with-python-3
         return pickle.load(f, encoding='latin1')
