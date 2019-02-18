@@ -1,7 +1,5 @@
 
-from ..Utils.KA_utils import tick_tock, callbacks_keras, LabelEncoder
-
-import xgboost
+from ..utils.k_others import tick_tock, callbacks_keras, LabelEncoder
 
 import lightgbm
 from lightgbm import callback
@@ -32,7 +30,7 @@ class ka_stacking_generalization(object):
                 testing data
            y_train: numpy array
                 training target
-           kf_n: KFold object from model_selection model
+           kf_n: KFold object from model_selection log
 
            Example
            -------
@@ -196,22 +194,22 @@ class ka_stacking_generalization(object):
         Example:
         -------
         def build_model():
-            model = Sequential()
-            model.add(Dense(256, input_shape=(X_train.shape[1],), activation='relu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.4))
-            model.add(Dense(128, activation='elu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.3))
-            model.add(Dense(64, activation='elu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.2))
-            model.add(Dense(32, activation='elu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.1))
-            model.add(Dense(1, activation='sigmoid'))
-            model.compile(loss='binary_crossentropy', optimizer='adam') model must be compiled
-            return model
+            log = Sequential()
+            log.add(Dense(256, input_shape=(X_train.shape[1],), activation='relu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.4))
+            log.add(Dense(128, activation='elu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.3))
+            log.add(Dense(64, activation='elu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.2))
+            log.add(Dense(32, activation='elu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.1))
+            log.add(Dense(1, activation='sigmoid'))
+            log.compile(loss='binary_crossentropy', optimizer='adam') log must be compiled
+            return log
         S_train, S_test = stack_generater.run_nn_stacker(build_model, 50, 128, PATH_DATA_MODEL, "nn_fold", 5, roc_auc_score, 0)
         '''
         with tick_tock("stacking", self.verbose):
@@ -320,24 +318,24 @@ class ka_stacking_generalization(object):
             model_rest.add(Dense(63, input_dim=64))
             models.append(model_rest)
 
-            model = Sequential()
-            model.add(Merge(models, mode='concat'))
-            model.add(Dense(256, activation='relu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.4))
-            model.add(Dense(128, activation='elu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.3))
-            model.add(Dense(64, activation='elu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.2))
-            model.add(Dense(32, activation='elu'))
-            model.add(BatchNormalization())
-            model.add(Dropout(0.1))
-            model.add(Dense(1, activation='sigmoid'))
+            log = Sequential()
+            log.add(Merge(models, mode='concat'))
+            log.add(Dense(256, activation='relu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.4))
+            log.add(Dense(128, activation='elu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.3))
+            log.add(Dense(64, activation='elu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.2))
+            log.add(Dense(32, activation='elu'))
+            log.add(BatchNormalization())
+            log.add(Dropout(0.1))
+            log.add(Dense(1, activation='sigmoid'))
 
-            model.compile(loss='binary_crossentropy', optimizer='adam') model must be compiled
-            return model
+            log.compile(loss='binary_crossentropy', optimizer='adam') log must be compiled
+            return log
         S_train, S_test = stack_generater.run_nn_stacker(build_model, 50, 128, PATH_DATA_MODEL, "nn_fold", 5, roc_auc_score, 0)
         '''
         with tick_tock("stacking", self.verbose):
@@ -419,23 +417,23 @@ class ka_stacking_generalization(object):
 def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
                             , X_test, update_seed=True, is_classification=True, using_notebook=True):
     '''
-        Bagging for "2-class classification" model and "regression" model
+        Bagging for "2-class classification" log and "regression" log
 
         Parameters
         ----------
         X_train: numpy array 2-dimension
-             training data for fitting model
+             training data for fitting log
         X_test: numpy array 2-dimension
              testing data for predict result
         y: numpy array 1-dimension
              training target
-        model: model instance
+        model: log instance
         seed: int
              random seed
         bag_round: int
              bagging rounds
         update_seed: boolean
-             update model to generate difference result
+             update log to generate difference result
         is_classification: boolean
              classfication will predict probability by default
              regression only predict value
@@ -456,9 +454,9 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
            y = data.target
            X_test = X.copy()
 
-           model = RandomForestRegressor()
-           pred_10 = bagging_2class_or_reg(X, y, model, 10, 10, X_test, is_classification=False)
-           pred_1 = bagging_2class_or_reg(X, y, model, 10, 1, X_test, is_classification=False)
+           log = RandomForestRegressor()
+           pred_10 = bagging_2class_or_reg(X, y, log, 10, 10, X_test, is_classification=False)
+           pred_1 = bagging_2class_or_reg(X, y, log, 10, 1, X_test, is_classification=False)
 
            print(mean_squared_error(y, pred_10)) # 1.38465739328
            print(mean_squared_error(y, pred_1)) # 2.13027490119
@@ -472,9 +470,9 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
            y = data.target
            X_test = X.copy()
 
-           model = RandomForestRegressor()
-           pred_10 = bagging_2class_or_reg(X, y, model, 10, 10, X_test, is_classification=False)
-           pred_1 = bagging_2class_or_reg(X, y, model, 10, 1, X_test, is_classification=False)
+           log = RandomForestRegressor()
+           pred_10 = bagging_2class_or_reg(X, y, log, 10, 10, X_test, is_classification=False)
+           pred_1 = bagging_2class_or_reg(X, y, log, 10, 1, X_test, is_classification=False)
 
            print(mean_squared_error(y, pred_10)) # 0.998868778281
            print(mean_squared_error(y, pred_1)) # 0.993778280543
@@ -489,8 +487,8 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
             #shuffle first, aids in increasing variance and forces different results
             X_train, y_train=shuffle(X_train, y_train, random_state=seed+n)
 
-            # update seed if requested, to give a slightly different model
-            # model like knn does not have random_state parameter
+            # update seed if requested, to give a slightly different log
+            # log like knn does not have random_state parameter
             if update_seed:
                 model.set_params(random_state=seed + n)
 
@@ -512,8 +510,8 @@ def ka_bagging_2class_or_reg(X_train, y_train, model, seed, bag_round
             #shuffle first, aids in increasing variance and forces different results
             X_train, y_train=shuffle(X_train, y_train, random_state=seed+n)
 
-            # update seed if requested, to give a slightly different model
-            # model like knn does not have random_state parameter
+            # update seed if requested, to give a slightly different log
+            # log like knn does not have random_state parameter
             if update_seed:
                 model.set_params(random_state=seed + n)
 

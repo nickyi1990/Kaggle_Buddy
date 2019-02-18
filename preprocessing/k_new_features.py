@@ -16,7 +16,7 @@ def _deprecated(func):
     new_func.__dict__.update(func.__dict__)
     return new_func
 
-def ka_create_groupby_features(df, group_columns_list, method_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features",):
+def k_create_groupby_features(df, group_columns_list, method_dict, add_to_original_data=False, verbose=1, verbose_detail="create stats features", suffix=''):
     '''Create statistical columns, group by [N columns] and compute stats on [N column]
 
        Parameters
@@ -55,7 +55,7 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, add_to_origi
             if type(group_columns_list) == list:
                 pass
             else:
-                raise TypeError(k + "should be a list")
+                raise TypeError(group_columns_list, "should be a list")
         except TypeError as e:
             print(e)
             raise
@@ -64,12 +64,16 @@ def ka_create_groupby_features(df, group_columns_list, method_dict, add_to_origi
         grouped = df_new.groupby(group_columns_list)
 
         the_stats = grouped.agg(method_dict)
-        the_stats.columns = [''.join(group_columns_list) + '_LV_' +"_".join(x[::-1]) for x in the_stats.columns.ravel()]
+        if suffix != '':
+            the_stats.columns = [''.join(group_columns_list) + '_LV_' +"_".join(x[::-1]) + '_' + str(suffix) for x in the_stats.columns.ravel()]
+        else:
+            the_stats.columns = [''.join(group_columns_list) + '_LV_' + "_".join(x[::-1]) for x in the_stats.columns.ravel()]
         the_stats.reset_index(inplace=True)
+
         if not add_to_original_data:
             df_new = the_stats
         else:
-            df_new = pd.merge(left=df_new, right=the_stats, on=group_columns_list, how='left')
+            df_new = pd.merge(left=df_new[group_columns_list], right=the_stats, on=group_columns_list, how='left').reset_index(drop=True)
 
     return df_new
 

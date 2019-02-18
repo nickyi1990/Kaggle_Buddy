@@ -164,6 +164,49 @@ def ka_verify_primary_key(data, column_list):
 ##                              CATEGORICAL BLOCK
 ####################################################################################
 
+def k_cat_explore(x: pd.Series):
+    unique_cnt = x.nunique()
+
+    print()
+
+
+def k_cat_explore(x: pd.Series):
+    unique_cnt = x.nunique()
+    value_cnts = x.value_counts(dropna=False)
+
+    print("num of unique counts: {}".format(unique_cnt))
+    plt_value_cnts(value_cnts.iloc[:20], x.name)
+    display(value_cnts.iloc[:20])
+
+    return unique_cnt, value_cnts
+
+def plt_value_cnts(value_cnts, name):
+    ax = value_cnts.plot(kind='barh', figsize=(10,7), color="coral", fontsize=13)
+    ax.set_title(name)
+
+    # create a list to collect the plt.patches data
+    totals = []
+
+    # find the values and append to list
+    for i in ax.patches:
+        totals.append(i.get_width())
+
+    # set individual bar lables using above list
+    total = sum(totals)
+
+    # set individual bar lables using above list
+    for i in ax.patches:
+        # get_width pulls left or right; get_y pushes up or down
+        ax.text(i.get_width() * 1,
+                i.get_y() + 0.3,
+                str(round((i.get_width()/total)*100, 2))+'%',
+                fontsize=15,
+                color='black')
+
+    # invert for largest on top
+    ax.invert_yaxis()
+    ax.plot()
+
 def ka_C_Binary_ratio(y, positive=1):
     '''Find the positive ration of dependent variable
 
