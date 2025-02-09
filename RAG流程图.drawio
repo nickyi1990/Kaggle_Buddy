@@ -1,0 +1,964 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.11" pages="3">
+  <diagram name="RAG生成" id="fKwwzb4sEZ7Y1kVtvg3o">
+    <mxGraphModel dx="1781" dy="1706" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-2" target="gL4pF9N1I_kK9rOWACg8-64" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-94" y="-58" width="570" height="579" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.002;entryY=0.53;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-4" target="gL4pF9N1I_kK9rOWACg8-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-291" y="246" />
+              <mxPoint x="-93" y="246" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-4" value="&lt;b&gt;LLM&lt;/b&gt;&lt;div&gt;提取关键词&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="-335" y="-37" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-94" y="246" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-184" y="246" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-6" value="&lt;b&gt;Embedding Model&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="-224" y="-39" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-7" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="-521" y="193" width="134" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-8" value="Documents" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-7" vertex="1">
+          <mxGeometry y="27" width="102" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-9" value="Documents" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-7" vertex="1">
+          <mxGeometry x="15" y="15" width="102" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-10" value="Documents" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-7" vertex="1">
+          <mxGeometry x="32" width="102" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-11" value="。。。" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="165.5" y="188" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-10" target="gL4pF9N1I_kK9rOWACg8-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-169" y="246" />
+              <mxPoint x="-169" y="246" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-13" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="-70" y="-14" width="527" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-14" value="" style="group;fillColor=#d5e8d4;strokeColor=#82b366;container=0;" parent="gL4pF9N1I_kK9rOWACg8-13" connectable="0" vertex="1">
+          <mxGeometry width="527" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-15" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=1;" parent="gL4pF9N1I_kK9rOWACg8-13" vertex="1">
+          <mxGeometry width="527" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="gL4pF9N1I_kK9rOWACg8-13" source="gL4pF9N1I_kK9rOWACg8-29" target="gL4pF9N1I_kK9rOWACg8-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="208" y="172.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-17" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;document-1&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="gL4pF9N1I_kK9rOWACg8-13" vertex="1">
+          <mxGeometry x="11" width="91" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-18" value="&lt;b&gt;doc embedding&lt;/b&gt;&lt;div&gt;与chunk embedding 计算 chunk similarity&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-13" vertex="1">
+          <mxGeometry x="288" y="105" width="234" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="gL4pF9N1I_kK9rOWACg8-13" source="gL4pF9N1I_kK9rOWACg8-23" target="gL4pF9N1I_kK9rOWACg8-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-20" value="mean" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="gL4pF9N1I_kK9rOWACg8-19" connectable="0" vertex="1">
+          <mxGeometry x="0.5498" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-21" value="" style="group" parent="gL4pF9N1I_kK9rOWACg8-13" connectable="0" vertex="1">
+          <mxGeometry x="11" y="32.5" width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-22" value="" style="whiteSpace=wrap;html=1;rounded=0;" parent="gL4pF9N1I_kK9rOWACg8-21" vertex="1">
+          <mxGeometry width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-23" value="chunk embedding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="gL4pF9N1I_kK9rOWACg8-21" vertex="1">
+          <mxGeometry x="84" y="6.5" width="110" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-24" value="keypharses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="gL4pF9N1I_kK9rOWACg8-21" vertex="1">
+          <mxGeometry x="7" y="62.5" width="71" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-25" value="doc chunk" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="gL4pF9N1I_kK9rOWACg8-21" vertex="1">
+          <mxGeometry x="5" y="21.5" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-26" value="chunk similarity" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-21" vertex="1">
+          <mxGeometry x="84" y="35.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-27" value="chunk relationship" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-21" vertex="1">
+          <mxGeometry x="84" y="64.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-28" value="" style="group" parent="gL4pF9N1I_kK9rOWACg8-13" connectable="0" vertex="1">
+          <mxGeometry x="10" y="142" width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-29" value="" style="whiteSpace=wrap;html=1;rounded=0;" parent="gL4pF9N1I_kK9rOWACg8-28" vertex="1">
+          <mxGeometry width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-30" value="chunk embedding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="gL4pF9N1I_kK9rOWACg8-28" vertex="1">
+          <mxGeometry x="84" y="6.5" width="110" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-31" value="keypharses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="gL4pF9N1I_kK9rOWACg8-28" vertex="1">
+          <mxGeometry x="7" y="62.5" width="71" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-32" value="doc chunk" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="gL4pF9N1I_kK9rOWACg8-28" vertex="1">
+          <mxGeometry x="5" y="21.5" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-33" value="chunk similarity" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-28" vertex="1">
+          <mxGeometry x="84" y="35.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-34" value="chunk relationship" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-28" vertex="1">
+          <mxGeometry x="84" y="64.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-35" value="..." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=25;" parent="gL4pF9N1I_kK9rOWACg8-13" vertex="1">
+          <mxGeometry x="71" y="113" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-36" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="-69" y="261" width="527" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-37" value="" style="group;fillColor=#d5e8d4;strokeColor=#82b366;container=0;" parent="gL4pF9N1I_kK9rOWACg8-36" connectable="0" vertex="1">
+          <mxGeometry width="527" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-38" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=1;" parent="gL4pF9N1I_kK9rOWACg8-36" vertex="1">
+          <mxGeometry width="527" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="gL4pF9N1I_kK9rOWACg8-36" source="gL4pF9N1I_kK9rOWACg8-52" target="gL4pF9N1I_kK9rOWACg8-41" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="208" y="172.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-40" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;document-1&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="gL4pF9N1I_kK9rOWACg8-36" vertex="1">
+          <mxGeometry x="11" width="91" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-41" value="&lt;b&gt;doc embedding&lt;/b&gt;&lt;div&gt;与chunk embedding 计算 chunk similarity&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-36" vertex="1">
+          <mxGeometry x="288" y="105" width="234" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="gL4pF9N1I_kK9rOWACg8-36" source="gL4pF9N1I_kK9rOWACg8-46" target="gL4pF9N1I_kK9rOWACg8-41" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-43" value="mean" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="gL4pF9N1I_kK9rOWACg8-42" connectable="0" vertex="1">
+          <mxGeometry x="0.5498" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-44" value="" style="group" parent="gL4pF9N1I_kK9rOWACg8-36" connectable="0" vertex="1">
+          <mxGeometry x="11" y="32.5" width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-45" value="" style="whiteSpace=wrap;html=1;rounded=0;" parent="gL4pF9N1I_kK9rOWACg8-44" vertex="1">
+          <mxGeometry width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-46" value="chunk embedding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="gL4pF9N1I_kK9rOWACg8-44" vertex="1">
+          <mxGeometry x="84" y="6.5" width="110" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-47" value="keypharses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="gL4pF9N1I_kK9rOWACg8-44" vertex="1">
+          <mxGeometry x="7" y="62.5" width="71" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-48" value="doc chunk" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="gL4pF9N1I_kK9rOWACg8-44" vertex="1">
+          <mxGeometry x="5" y="21.5" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-49" value="chunk similarity" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-44" vertex="1">
+          <mxGeometry x="84" y="35.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-50" value="chunk relationship" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-44" vertex="1">
+          <mxGeometry x="84" y="64.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-51" value="" style="group" parent="gL4pF9N1I_kK9rOWACg8-36" connectable="0" vertex="1">
+          <mxGeometry x="10" y="142" width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-52" value="" style="whiteSpace=wrap;html=1;rounded=0;" parent="gL4pF9N1I_kK9rOWACg8-51" vertex="1">
+          <mxGeometry width="199" height="92.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-53" value="chunk embedding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="gL4pF9N1I_kK9rOWACg8-51" vertex="1">
+          <mxGeometry x="84" y="6.5" width="110" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-54" value="keypharses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="gL4pF9N1I_kK9rOWACg8-51" vertex="1">
+          <mxGeometry x="7" y="62.5" width="71" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-55" value="doc chunk" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="gL4pF9N1I_kK9rOWACg8-51" vertex="1">
+          <mxGeometry x="5" y="21.5" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-56" value="chunk similarity" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-51" vertex="1">
+          <mxGeometry x="84" y="35.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-57" value="chunk relationship" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-51" vertex="1">
+          <mxGeometry x="84" y="64.5" width="109" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-58" value="..." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=25;" parent="gL4pF9N1I_kK9rOWACg8-36" vertex="1">
+          <mxGeometry x="71" y="113" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-59" value="..." style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=25;" parent="1" vertex="1">
+          <mxGeometry x="159" y="225" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-60" value="&lt;div&gt;&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-61" y="-179" width="18" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-61" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;名词解释&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;text-align: center;&quot;&gt;chunk similarity :&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center;&quot;&gt;判断文档块是否属于该文档，计算&lt;/span&gt;&lt;span style=&quot;text-align: center;&quot;&gt;chunk与doc的相似度。&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;text-align: center;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;chunk relationship : 判断该文档块在文档中的前一个和后一个文档块&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-91" y="-169" width="528" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-62" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/png,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Jl8eMmSI29HLysrQEtCzZ09UGp544ok1a9YgA3x/aWkpXD7mgcXRMH9os2bN3HbkRxIgAecToO93vka0kASsIQAHD6+PJ/WNGzfCf3ft0hUbeKZv165dQkKC2zng3SMiImRiTExMcXExtpOTkzMzM+H1H3300YULF54/f95tL34kARJQggB9vxIy0UgSsIAAGvbh7PG4HxYW1rVr1yH3aVUB+H7jQz9OFh4Wrp8SwQGybT80NHTVqlUrVqzo3r373LlzExMTjx07pmfjBgmQgCoE6PtVUYp2koBZAvKV/6xZs6SzR1UAvh+L8WV/LWdCPWDgwIGTJ09G6EDDhg2XLl1aS2Z+RQIk4EwCYc40i1aRAAlYTiAqKqpHjx6LFy9+7733cPD09HQE8F+/ft3jc7/Hs2/btg0v/ocOHYphALBdUlLSrVs3jzmZSAIk4GQC9P1OVoe2kYDFBODm0cFPPui3aNGiW2K3ouIiNN17eZrIyMj169fPnj0bQYKxsbEzZ84cPny4l/syGwmQgHMIcGwf52hBS0iABEiABEjAHwT4vt8flHkOEiABEiABEnAOAfp+52hBS0iABEiABEjAHwTo+/1BmecgARIgARIgAecQoO93jha0hARIgARIgAT8QYC+3x+UeQ4SIAESIAEScA4B+n7naEFLSIAESIAESMAfBOj7/UGZ5yABEiABEiAB5xCg73eOFrSEBEiABEiABPxBgL7fH5R5DhIgARIgARJwDgH6fudoQUtIgARIgARIwB8E6Pv9QZnnIAESIAESIAHnEKDvd44WtIQESIAESIAE/EHg/wGShU7+yV6M5QAAAABJRU5ErkJggg==;" parent="1" vertex="1">
+          <mxGeometry x="684" y="-111" width="364" height="252.82" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-64" target="gL4pF9N1I_kK9rOWACg8-69" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-64" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Get random doc chunks&lt;/h1&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;wins:被抽到的次数&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;get_random_nodes&lt;/span&gt;(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;self&lt;/span&gt;, &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;k&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(9, 134, 88);&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;alpha&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(9, 134, 88);&quot;&gt;0.1&lt;/span&gt;) -&amp;gt; t.List[Node]:&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;adjustment_factor&lt;/span&gt;(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;wins&lt;/span&gt;, &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;alpha&lt;/span&gt;):&lt;/div&gt;&lt;div&gt;        &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;return&lt;/span&gt; np.exp(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;-&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;alpha&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;*&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;wins&lt;/span&gt;)&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;scores&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; [&lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;adjustment_factor&lt;/span&gt;(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;node&lt;/span&gt;.wins, &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;alpha&lt;/span&gt;) &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;for&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;node&lt;/span&gt; &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;in&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;self&lt;/span&gt;.nodes]&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;similarity_scores&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; [&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;node&lt;/span&gt;.doc_similarity &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;for&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;node&lt;/span&gt; &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;in&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;self&lt;/span&gt;.nodes]&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;prob&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; np.array(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;scores&lt;/span&gt;) &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;*&lt;/span&gt; np.array(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;similarity_scores&lt;/span&gt;)&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;prob&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;prob&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;/&lt;/span&gt; np.sum(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;prob&lt;/span&gt;)&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;nodes&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; rng.choice(np.array(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;self&lt;/span&gt;.nodes), &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;size&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;k&lt;/span&gt;, &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;p&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;prob&lt;/span&gt;).tolist()&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;for&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;node&lt;/span&gt; &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;in&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;nodes&lt;/span&gt;:&lt;/div&gt;&lt;div&gt;        &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;idx&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;self&lt;/span&gt;.nodes.index(&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;node&lt;/span&gt;)&lt;/div&gt;&lt;div&gt;        &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;self&lt;/span&gt;.nodes[&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;idx&lt;/span&gt;].wins &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+=&lt;/span&gt; &lt;span style=&quot;color: rgb(9, 134, 88);&quot;&gt;1&lt;/span&gt;&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(175, 0, 219);&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;nodes&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=default;" parent="1" vertex="1">
+          <mxGeometry x="600.75" y="141.82" width="530.5" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-65" value="&lt;span style=&quot;color: rgb(121, 94, 38); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;adjustment_factor&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="680" y="-135" width="151" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-66" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;改进点&lt;/h1&gt;&lt;p&gt;1. keypharses的抽取由&lt;b&gt;所有节点&lt;/b&gt;都抽取变为&lt;b&gt;需要用到哪些节点&lt;/b&gt;再抽取。&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-415" y="-286" width="392" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-69" target="gL4pF9N1I_kK9rOWACg8-73" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-69" target="gL4pF9N1I_kK9rOWACg8-75" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-69" value="&lt;b&gt;High Quality Doc&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="806" y="521" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-104" target="gL4pF9N1I_kK9rOWACg8-73" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="779.5000000000068" y="615.4999999999998" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-97" target="gL4pF9N1I_kK9rOWACg8-69" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="827" y="463" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-73" target="gL4pF9N1I_kK9rOWACg8-74" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-73" value="&lt;b&gt;Question&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="806" y="674" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-74" value="&lt;b&gt;High Quality&amp;nbsp;&lt;/b&gt;&lt;div&gt;&lt;b&gt;Question&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="806" y="906" width="120" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-75" value="&lt;b&gt;Similar Doc&lt;/b&gt;&lt;div&gt;整个文档库中最相似的文档块&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1136" y="526" width="175" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-77" target="gL4pF9N1I_kK9rOWACg8-75" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1051" y="551" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-77" value="&lt;b&gt;Embedding Model&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1011" y="429" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-79" target="gL4pF9N1I_kK9rOWACg8-84" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-79" value="&lt;b&gt;Multi Context Question&lt;/b&gt;&lt;div&gt;&lt;b&gt;问题的回答涉及多上下文&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1075.5" y="745" width="179" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-80" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-69" target="gL4pF9N1I_kK9rOWACg8-79" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1046" y="647" as="sourcePoint" />
+            <mxPoint x="1113.9999999999973" y="656.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-81" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-75" target="gL4pF9N1I_kK9rOWACg8-79" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1491" y="639" as="sourcePoint" />
+            <mxPoint x="1154" y="742" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-84" target="gL4pF9N1I_kK9rOWACg8-87" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-84" target="gL4pF9N1I_kK9rOWACg8-89" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1062" y="900" />
+              <mxPoint x="1062" y="1163" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-84" value="&lt;b&gt;High Quality&amp;nbsp;&lt;/b&gt;&lt;div&gt;&lt;b&gt;Question&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1105" y="877" width="120" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-115" target="gL4pF9N1I_kK9rOWACg8-87" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1270.00002061431" y="959.0476190476193" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-86" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gL4pF9N1I_kK9rOWACg8-87" target="gL4pF9N1I_kK9rOWACg8-89" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-87" value="&lt;b&gt;High Quality&amp;nbsp;&lt;/b&gt;&lt;div&gt;&lt;b&gt;Compressed Question&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1094.5" y="994" width="141" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-120" target="gL4pF9N1I_kK9rOWACg8-89" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1291" y="1163" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-89" value="&lt;b&gt;Final Question&lt;/b&gt;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="1105" y="1133" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-90" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;multi_context_question_prompt&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(0, 112, 193);&quot;&gt;MULTI_CONTEXT_QUESTION_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;multi_context_question&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;&quot;&quot;任务是改写并复杂化给定问题，使其回答需要同时依据context1和context2中的信息。遵循以下规则进行问题改写：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;1. 改写后的问题不应过长，尽可能使用缩略语。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;2. 改写后的问题必须合理且易于人类理解与作答。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;3. 改写后的问题必须能完全从context1和context2中提供的信息得出答案。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;4. 阅读并理解两段上下文，改写问题以便回答需结合context1和context2的洞察。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;5. 问题中不得出现诸如“基于提供的上下文”、“根据上下文？”等表述。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;        {&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;植物变绿的过程是什么？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context1&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;叶绿素是赋予植物绿色并帮助其进行光合作用的色素。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context2&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;植物的光合作用通常发生在叶绿体集中的叶片中。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;何种色素以其青翠之色在何种植物结构中促进能量生成？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;        },&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;        {&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;如何计算矩形的面积？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context1&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;形状的面积基于其尺寸计算。对于矩形，涉及长和宽的乘积。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context2&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;矩形有四条边，对边长度相等，属于四边形的一种。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;何项涉及等长对边的乘法运算可得出四边形的面积？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;        },&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    ],&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;, &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context1&quot;&lt;/span&gt;, &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context2&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;str&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;)&lt;/div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=1;" parent="1" vertex="1">
+          <mxGeometry x="410.5" y="2520" width="822" height="597" as="geometry">
+            <mxRectangle x="700" y="1790" width="245" height="48" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-91" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-93" target="gL4pF9N1I_kK9rOWACg8-79" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1325.4982143312832" y="690.5017856687175" as="sourcePoint" />
+            <mxPoint x="1450" y="706" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-92" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="1267" y="617" width="278" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-93" value="&lt;div&gt;&lt;b&gt;LLM：&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;生成基于多上下文的问题&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-92" vertex="1">
+          <mxGeometry width="278" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-94" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;MULTI_CONTEXT_QUESTION_PROMPT&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-92" collapsed="1" vertex="1">
+          <mxGeometry x="12" y="34.61538461538461" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="1460" y="798" width="836" height="473" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-95" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(0, 112, 193);&quot;&gt;MULTI_CONTEXT_QUESTION_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;multi_context_question&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;&quot;&quot;任务是改写并复杂化给定问题，使其回答需要同时依据context1和context2中的信息。遵循以下规则进行问题改写：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;1. 改写后的问题不应过长，尽可能使用缩略语。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;2. 改写后的问题必须合理且易于人类理解与作答。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;3. 改写后的问题必须能完全从context1和context2中提供的信息得出答案。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;4. 阅读并理解两段上下文，改写问题以便回答需结合context1和context2的洞察。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;5. 问题中不得出现诸如“基于提供的上下文”、“根据上下文？”等表述。&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;        {&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;植物变绿的过程是什么？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context1&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;叶绿素是赋予植物绿色并帮助其进行光合作用的色素。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context2&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;植物的光合作用通常发生在叶绿体集中的叶片中。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;何种色素以其青翠之色在何种植物结构中促进能量生成？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;        },&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;        {&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;如何计算矩形的面积？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context1&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;形状的面积基于其尺寸计算。对于矩形，涉及长和宽的乘积。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context2&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;矩形有四条边，对边长度相等，属于四边形的一种。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;何项涉及等长对边的乘法运算可得出四边形的面积？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;        },&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    ],&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;, &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context1&quot;&lt;/span&gt;, &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context2&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;str&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-94" vertex="1">
+          <mxGeometry x="40" y="27.692307692307697" width="790" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-96" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="499" y="438" width="291" height="74.64999999999998" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-97" value="&lt;div&gt;&lt;b&gt;LLM：&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;筛选高质量文档块&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-96" vertex="1">
+          <mxGeometry width="291" height="74.65" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-98" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;Node Filter Prompt&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-96" collapsed="1" vertex="1">
+          <mxGeometry x="16.189999999999998" y="41.01999999999998" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="16.19" y="41.02" width="1441.81" height="714.98" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-99" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0070c1;&quot;&gt;CONTEXT_SCORING_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #267f99;&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;score_context&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;&quot;&quot;给定一个上下文,执行以下任务并在您的JSON响应中以有效格式输出答案: 对提供的上下文进行评估, 并为以下每个标准在您的JSON响应中分配数值评分(1:低,2:中,3:高):&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;clarity:评估所呈现信息的精确度和可理解性。高分(3)留给既在信息上精确又易于理解的上下文。低分(1)用于信息模糊或难以理解的上下文。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;depth:确定上下文中详细考察的水平以及创新见解的包含程度。高分表示全面且有洞察力的分析, 而低分则表明对主题的表面处理。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;structure: 评估内容组织得如何，是否逻辑流畅。高分授予展现连贯组织和逻辑进展的上下文，而低分则表示缺乏结构或进展清晰度不足。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;relevance: 判断内容与主要主题的相关性，对紧密聚焦于主题、无冗余偏离的上下文给予高分，对充斥无关信息的上下文给予低分。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;请按照这些标准作为键并附上相应分数作为值来构建您的JSON输出。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_format_instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;get_json_format_instructions&lt;/span&gt;(&lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;),&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;勾股定理是几何学中的基本原理。它指出，在直角三角形中，斜边（即直角对面的边）长度的平方等于另外两边长度平方之和。可以写作a^2 + b^2 = c^2，其中c代表斜边长度，a和b代表另外两边的长度。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;clarity&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;depth&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;structure&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;relevance&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;}&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;阿尔伯特·爱因斯坦（1879年3月14日－1955年4月18日）是一位出生于德国的理论物理学家，被广泛认为是有史以来最伟大、最有影响力的科学家之一。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;clarity&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;depth&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;2&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;structure&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;relevance&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;}&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;我喜欢巧克力。它真的很美味。哦，顺便说一句，地球绕太阳转，而不是反过来。还有，我最喜欢的颜色是蓝色。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;clarity&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;2&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;depth&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;structure&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;relevance&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;}&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;    ],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;json&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-98" vertex="1">
+          <mxGeometry x="29.81852861035418" y="45.98015947102296" width="1308" height="642" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-100" value="&lt;div&gt;&lt;b&gt;LLM：&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;筛选高质量文档块&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-7" y="620" width="291" height="74.65" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-101" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;Node Filter Prompt&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" collapsed="1" vertex="1">
+          <mxGeometry x="9.189999999999998" y="661.02" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="16.19" y="41.02" width="1441.81" height="714.98" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-102" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0070c1;&quot;&gt;CONTEXT_SCORING_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #267f99;&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;score_context&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;&quot;&quot;给定一个上下文,执行以下任务并在您的JSON响应中以有效格式输出答案: 对提供的上下文进行评估, 并为以下每个标准在您的JSON响应中分配数值评分(1:低,2:中,3:高):&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;clarity:评估所呈现信息的精确度和可理解性。高分(3)留给既在信息上精确又易于理解的上下文。低分(1)用于信息模糊或难以理解的上下文。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;depth:确定上下文中详细考察的水平以及创新见解的包含程度。高分表示全面且有洞察力的分析, 而低分则表明对主题的表面处理。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;structure: 评估内容组织得如何，是否逻辑流畅。高分授予展现连贯组织和逻辑进展的上下文，而低分则表示缺乏结构或进展清晰度不足。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;relevance: 判断内容与主要主题的相关性，对紧密聚焦于主题、无冗余偏离的上下文给予高分，对充斥无关信息的上下文给予低分。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;请按照这些标准作为键并附上相应分数作为值来构建您的JSON输出。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_format_instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;get_json_format_instructions&lt;/span&gt;(&lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;),&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;勾股定理是几何学中的基本原理。它指出，在直角三角形中，斜边（即直角对面的边）长度的平方等于另外两边长度平方之和。可以写作a^2 + b^2 = c^2，其中c代表斜边长度，a和b代表另外两边的长度。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;clarity&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;depth&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;structure&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;relevance&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;}&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;阿尔伯特·爱因斯坦（1879年3月14日－1955年4月18日）是一位出生于德国的理论物理学家，被广泛认为是有史以来最伟大、最有影响力的科学家之一。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;clarity&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;depth&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;2&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;structure&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;relevance&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;3&lt;/span&gt;}&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;我喜欢巧克力。它真的很美味。哦，顺便说一句，地球绕太阳转，而不是反过来。还有，我最喜欢的颜色是蓝色。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;ContextScoring&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;clarity&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;2&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;depth&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;structure&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;relevance&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;}&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;    ],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;context&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;json&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-101" vertex="1">
+          <mxGeometry x="29.81852861035418" y="45.98015947102296" width="1308" height="642" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-103" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="499" y="578" width="291" height="74.64999999999998" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-104" value="&lt;div&gt;&lt;b&gt;LLM：生成问题&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-103" vertex="1">
+          <mxGeometry width="291" height="74.65" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-105" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;Seed Question Prompt&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-103" collapsed="1" vertex="1">
+          <mxGeometry x="16.189999999999998" y="41.01999999999998" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="41.19" y="745.02" width="825.81" height="738.98" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-106" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-105" vertex="1">
+          <mxGeometry x="674.8185286103542" y="351.98015947102294" width="18" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-107" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px; white-space-collapse: preserve;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 112, 193);&quot;&gt;SEED_QUESTION_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;seed_question&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;根据给定上下文生成一个能够完全回答的问题。该问题应使用topic构建&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;植物光合作用涉及利用叶绿素和其他色素吸收光，将光能转化为化学能。这一过程对植物生长和氧气产生至关重要。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;keyphrase&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;光合作用&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;光合作用在植物生长中起到什么作用？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;始于18世纪的工业革命是历史上的一个重要转折点，因为它导致了工厂的兴起和城市化。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;keyphrase&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;工业革命&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;工业革命如何标志着历史上的一个重要转折点？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;蒸发过程在水循环中起着至关重要的作用，将水从液态转化为气态，使其上升到大气中。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;keyphrase&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;蒸发&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;为什么蒸发在水循环中很重要？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;    ],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;context&quot;&lt;/span&gt;, &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;keyphrase&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;str&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-105" vertex="1">
+          <mxGeometry x="7.810000000000002" y="90.98000000000002" width="818" height="462" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-108" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="499" y="791" width="291" height="74.64999999999998" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-109" value="&lt;div&gt;&lt;b&gt;LLM：&lt;/b&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;筛选高质问题&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-108" vertex="1">
+          <mxGeometry width="291" height="74.65" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-110" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;Question Filter Prompt&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-108" collapsed="1" vertex="1">
+          <mxGeometry x="16.19" y="41.01999999999998" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="9.88" y="796.02" width="1109.12" height="766.98" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-111" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 112, 193);&quot;&gt;FILTER_QUESTION_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;filter_question&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;&quot;&quot;根据提供的领域知识评估给定问题的清晰度和可回答性，考虑以下标准：&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;独立性：问题是否能脱离任何外部资料或未提及的背景知识而独立存在？确保问题内容自足，不依赖特定文档、表格或隐含但未明示的信息。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;例如，避免使用如“在这种情况下”、“某个人”或“这个例子”等表述，除非已提供具体细节，否则将被视为缺乏独立性。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;明确意图：是否明确问题寻求何种类型的答案或信息？问题需精准表达其诉求，使回答者能够直接针对问题的核心作出响应。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;基于以上标准，当问题具体、独立且意图清晰时，判定为“1”。反之，如果问题因表述模糊、依赖外部信息或意图不明而未能达到上述任一标准，判定为“0”。&lt;/span&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;以JSON格式提供反馈及判定结果，如果判定问题不清晰，请附上改进建议，特别指出导致问题难解或不清晰的关键因素，并提出增强问题表述力、提升理解度与可回答性的策略建议。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_format_instruction&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;get_json_format_instructions&lt;/span&gt;(&lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;QuestionFilter&lt;/span&gt;),&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;关于太空有什么发现？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;QuestionFilter&lt;/span&gt;.&lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;feedback&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;此问题过于宽泛和模糊，询问“关于太空的发现”却没有指明任何特定方面、时间范围或感兴趣的情境。这可能涉及从新天体的发现到太空旅行技术的进...&lt;/span&gt;&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;verdict&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;0&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                }&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;根据上下文1和上下文2中的结果，ALMA-13B-R模型在WMT&#39;23研究中与其它翻译模型相比表现如何？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(38, 127, 153);&quot;&gt;QuestionFilter&lt;/span&gt;.&lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;feedback&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;此问题要求比较ALMA-13B-R模型在WMT&#39;...&lt;/span&gt;&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;verdict&quot;&lt;/span&gt;: &lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;0&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                }&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: rgb(121, 94, 38);&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt; &lt;/div&gt;&lt;div&gt;    ],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;question&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;json&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: rgb(163, 21, 21);&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-110" vertex="1">
+          <mxGeometry x="12.118528610354176" y="56.98015947102296" width="1073" height="696" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-109" target="gL4pF9N1I_kK9rOWACg8-74" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="678" y="929" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="gL4pF9N1I_kK9rOWACg8-109" target="gL4pF9N1I_kK9rOWACg8-84" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-114" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="1278" y="919.35" width="291" height="74.64999999999998" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-115" value="&lt;div&gt;&lt;b&gt;LLM：简化问题&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-114" vertex="1">
+          <mxGeometry width="291" height="74.65" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-116" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;Node Filter Prompt&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-114" collapsed="1" vertex="1">
+          <mxGeometry x="16.189999999999998" y="41.01999999999998" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="-58.81" y="896.67" width="658.81" height="413.33" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-117" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-116" vertex="1">
+          <mxGeometry x="674.8185286103542" y="351.98015947102294" width="18" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-118" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px; white-space-collapse: preserve;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0070c1;&quot;&gt;COMPRESS_QUESTION_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #267f99;&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;compress_question&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;&quot;&quot;将下列问题改写为更加间接且更短的形式，同时保留原问题的核心含义。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;目的是构建一个传达相同意义但表达方式更为婉转的问题。改写后的问题应尽量缩短，可使用缩略词。&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;地球与月球之间的距离是多少？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;月球离地球有多远？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;烘焙巧克力蛋糕需要哪些原料？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;制作巧克力蛋糕需要什么？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;    ],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;str&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-116" vertex="1">
+          <mxGeometry x="20" y="44.33000000000004" width="587" height="354" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-119" value="" style="group" parent="1" connectable="0" vertex="1">
+          <mxGeometry x="1278" y="1125.67" width="291" height="74.64999999999998" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-120" value="&lt;div&gt;&lt;b&gt;LLM：验证问题一致性&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-119" vertex="1">
+          <mxGeometry width="291" height="74.65" as="geometry" />
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-121" value="&lt;span style=&quot;color: rgb(0, 112, 193); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-weight: 400; text-align: left; white-space: pre;&quot;&gt;Consistency Prompt&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="gL4pF9N1I_kK9rOWACg8-119" collapsed="1" vertex="1">
+          <mxGeometry x="16.189999999999998" y="41.01999999999998" width="260" height="20.76923076923077" as="geometry">
+            <mxRectangle x="-82.81" y="939.02" width="848.81" height="859.98" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gL4pF9N1I_kK9rOWACg8-122" value="&lt;div style=&quot;color: rgb(59, 59, 59); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; white-space-collapse: preserve; text-align: left;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;div style=&quot;line-height: 18px;&quot;&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;color: #0070c1;&quot;&gt;EVOLUTION_ELIMINATION_PROMPT_CN&lt;/span&gt; &lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color: #267f99;&quot;&gt;Prompt&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;evolution_elimination&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;&quot;&quot;根据以下要求检查所给的两个问题是否相等：&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;1. 它们具有相同的约束和要求。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;2. 它们的探究深度和广度相同。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;如果它们相等，则输出判决结果为1；如果不相等，则输出0&quot;&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_format_instruction&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;get_json_format_instructions&lt;/span&gt;(&lt;span style=&quot;color: #267f99;&quot;&gt;EvolutionElimination&lt;/span&gt;),&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;examples&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question1&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;气候变化的主要原因是什么？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question2&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;导致全球变暖的因素有哪些？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;EvolutionElimination&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;reason&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;虽然两个问题都涉及环境问题，但&#39;气候变化&#39;涵盖的范围比&#39;全球变暖&#39;更广泛，导致探究深度不同。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;verdict&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;0&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                }&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question1&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;植物中光合作用是如何进行的？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question2&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;你能解释一下植物中光合作用的过程吗？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;EvolutionElimination&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;reason&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;两个问题都要求对植物中光合作用的过程进行解释，答案具有相同的深度、广度和要求。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;verdict&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                }&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;        {&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question1&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;定期锻炼对健康有哪些益处？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question2&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;你能列举一下定期锻炼对健康的优点吗？&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;            &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;: &lt;span style=&quot;color: #267f99;&quot;&gt;EvolutionElimination&lt;/span&gt;.&lt;span style=&quot;color: #795e26;&quot;&gt;parse_obj&lt;/span&gt;(&lt;/div&gt;&lt;div&gt;                {&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;reason&quot;&lt;/span&gt;: &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;两个问题都寻求关于定期锻炼对健康产生积极影响的信息。它们在列举健康益处时要求相似的细节水平。&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                    &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;verdict&quot;&lt;/span&gt;: &lt;span style=&quot;color: #098658;&quot;&gt;1&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;                }&lt;/div&gt;&lt;div&gt;            ).&lt;span style=&quot;color: #795e26;&quot;&gt;dict&lt;/span&gt;(),&lt;/div&gt;&lt;div&gt;        },&lt;/div&gt;&lt;div&gt;    ],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;input_keys&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;[&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question1&quot;&lt;/span&gt;, &lt;span style=&quot;color: #a31515;&quot;&gt;&quot;question2&quot;&lt;/span&gt;],&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_key&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;output&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;output_type&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;json&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;    &lt;span style=&quot;color: #001080;&quot;&gt;language&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #a31515;&quot;&gt;&quot;chinese&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div&gt;)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="gL4pF9N1I_kK9rOWACg8-121" vertex="1">
+          <mxGeometry x="13.808528610354188" y="33.63015947102296" width="808" height="822" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="RAG评估" id="nJ5DrKn6qQ37NvRF7BCi">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-47" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="-57" width="944" height="506" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-43" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-28" y="-57" width="479" height="506" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-1" target="lPWdBNxXrh-eIUx1Soot-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-1" target="lPWdBNxXrh-eIUx1Soot-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="34" y="293" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-1" value="answers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-13" y="128" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-2" value="LLM" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="118" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-6" target="lPWdBNxXrh-eIUx1Soot-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-6" value="Embedding" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="268" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-2" target="lPWdBNxXrh-eIUx1Soot-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-15" value="" style="group" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="295" y="63" width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-12" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-15">
+          <mxGeometry width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-3" value="questions-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-15">
+          <mxGeometry x="10" y="10" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-7" value="questions-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-15">
+          <mxGeometry x="10" y="50" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-9" value="questions-n" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-15">
+          <mxGeometry x="10" y="120" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-10" value="。。。" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-15">
+          <mxGeometry x="31" y="81" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-12" target="lPWdBNxXrh-eIUx1Soot-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="293" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-18" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Response Relevancy&lt;/font&gt;&lt;/b&gt; : Mean Cos Similarities" style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="55" y="386" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-22" target="lPWdBNxXrh-eIUx1Soot-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-22" value="answers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="499" y="232" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-23" value="LLM" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="658" y="222" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-23" target="lPWdBNxXrh-eIUx1Soot-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-25" value="" style="group" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="798" y="167" width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-26" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-25">
+          <mxGeometry width="120" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-27" value="statement-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-25">
+          <mxGeometry x="10" y="10" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-28" value="statement-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-25">
+          <mxGeometry x="10" y="50" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-29" value="statement-n" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-25">
+          <mxGeometry x="10" y="120" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-30" value="。。。" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="lPWdBNxXrh-eIUx1Soot-25">
+          <mxGeometry x="31" y="81" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-31" target="lPWdBNxXrh-eIUx1Soot-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-31" value="&lt;div class=&quot;lake-content&quot;&gt;&lt;p style=&quot;margin: 0; padding: 0; min-height: 24px&quot; class=&quot;ne-p&quot; id=&quot;uaea34bcd&quot;&gt;&lt;span class=&quot;ne-text&quot;&gt;Given a question and answer, create one or more statements from each sentence in the given answer.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0; padding: 0; min-height: 24px&quot; class=&quot;ne-p&quot; id=&quot;uaea34bcd&quot;&gt;&lt;span class=&quot;ne-text&quot;&gt;&lt;b&gt;question: [question] answer: [answer]&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="575" y="81" width="246" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-33" target="lPWdBNxXrh-eIUx1Soot-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-33" value="&lt;div class=&quot;lake-content&quot;&gt;&lt;p style=&quot;margin: 0; padding: 0; min-height: 24px&quot; class=&quot;ne-p&quot; id=&quot;uaea34bcd&quot;&gt;Generate a question for the given answer.&lt;br&gt;&lt;b&gt;answer: [answer]&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="72" y="-8.5" width="246" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-35" target="lPWdBNxXrh-eIUx1Soot-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-35" value="context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1209" y="232" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-36" target="lPWdBNxXrh-eIUx1Soot-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-36" value="&lt;div class=&quot;lake-content&quot;&gt;&lt;p style=&quot;margin: 0; padding: 0; min-height: 24px&quot; class=&quot;ne-p&quot; id=&quot;uaea34bcd&quot;&gt;Consider the given &lt;b&gt;[context]&lt;/b&gt; and following statements, then determine whether they are supported by the information present in the context. Provide a brief explanation for each statement before arriving at the verdict (Yes/No). Provide a final verdict for each statement in order at the end in the given format. Do not deviate from the specified format.&lt;br&gt;&lt;b&gt;statement: [statement 1]&lt;br&gt;&lt;/b&gt;...&lt;br&gt;&lt;b&gt;statement: [statement n]&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="877" y="3" width="432" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-37" target="lPWdBNxXrh-eIUx1Soot-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-37" value="LLM" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1053" y="222" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lPWdBNxXrh-eIUx1Soot-26" target="lPWdBNxXrh-eIUx1Soot-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-41" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;Faithfulness&lt;/b&gt;&lt;/font&gt; : the &lt;b&gt;number&lt;/b&gt; &lt;b&gt;of&lt;/b&gt; &lt;b&gt;statements&lt;/b&gt; that were &lt;b&gt;supported&lt;/b&gt; according to the &lt;b&gt;LLM /&amp;nbsp;total&lt;/b&gt; &lt;b&gt;number&lt;/b&gt; of &lt;b&gt;statements&lt;/b&gt;." style="whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="767.25" y="386" width="651.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-44" value="&lt;b&gt;&lt;font&gt;Response Relevancy&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#FF3333;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="-55" width="183" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lPWdBNxXrh-eIUx1Soot-46" value="&lt;b&gt;&lt;font&gt;Faithfulness&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#FF3333;" vertex="1" parent="1">
+          <mxGeometry x="490" y="-57" width="126" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-1" value="Query" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="135" y="-391" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-2" value="Context" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="451" y="-442" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-3" value="Answer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="392" y="-252" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ettfgMc_xb615GK2nXaQ-1" target="ettfgMc_xb615GK2nXaQ-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="364" y="-372" as="sourcePoint" />
+            <mxPoint x="414" y="-422" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-11" value="Context Relevance&lt;div&gt;回答是否和上下文相关&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ettfgMc_xb615GK2nXaQ-5">
+          <mxGeometry x="-0.0409" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ettfgMc_xb615GK2nXaQ-2" target="ettfgMc_xb615GK2nXaQ-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="521" y="-292" as="sourcePoint" />
+            <mxPoint x="571" y="-342" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-8" value="Faithfulness :&amp;nbsp;&lt;div class=&quot;lake-content&quot;&gt;&lt;p style=&quot;margin: 0; padding: 0; min-height: 24px&quot; class=&quot;ne-p&quot; id=&quot;u61a860a0&quot;&gt;&lt;span class=&quot;ne-text&quot;&gt;回答是否来自上下文&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ettfgMc_xb615GK2nXaQ-7">
+          <mxGeometry x="-0.0655" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ettfgMc_xb615GK2nXaQ-1" target="ettfgMc_xb615GK2nXaQ-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="316" y="-394" as="sourcePoint" />
+            <mxPoint x="461" y="-402" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ettfgMc_xb615GK2nXaQ-10" value="Response Relevancy&lt;div&gt;回答是否和问题相关&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ettfgMc_xb615GK2nXaQ-9">
+          <mxGeometry x="-0.0821" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="HIPPORAG" id="WG6trYlT2YLvz2LbiJOc">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-97" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="34" y="417" width="567" height="223" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-59" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="79" width="267" height="321" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-50" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="58" y="90" width="232" height="153" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-48" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="276" width="230" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-43" target="KQcT1T2ag9PjqJUIMcqv-48">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-110" y="332" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-43" target="KQcT1T2ag9PjqJUIMcqv-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-93" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-43" target="KQcT1T2ag9PjqJUIMcqv-92">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-134" y="350" />
+              <mxPoint x="-134" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-43" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-161" y="98" width="94" height="137" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-1" target="KQcT1T2ag9PjqJUIMcqv-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-1" value="documents" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-158.5" y="-61" width="90" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-2" target="KQcT1T2ag9PjqJUIMcqv-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-11" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-10">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-2" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="71" y="104" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-5" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="104" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-6" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-147" y="112" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-12" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-147" y="143" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-13" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-147" y="194" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-14" value="。。。" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-141" y="164" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-23" value="。。。" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="146" y="170" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-26" target="KQcT1T2ag9PjqJUIMcqv-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-26" value="LLM" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-135.5" y="22" width="43" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-32" target="KQcT1T2ag9PjqJUIMcqv-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-31" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-30">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-32" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="73" y="287" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-33" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="217" y="287" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-37" target="KQcT1T2ag9PjqJUIMcqv-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-36" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-35">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-37" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="71" y="149" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-38" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="149" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-41" target="KQcT1T2ag9PjqJUIMcqv-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-40" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-39">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-41" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="71" y="205" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-42" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="205" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-46" target="KQcT1T2ag9PjqJUIMcqv-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-45" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-44">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-46" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="73" y="347" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-47" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="217" y="347" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-49" value="。。。" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="148" y="313" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-53" target="KQcT1T2ag9PjqJUIMcqv-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-53" value="LLM" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-22" y="145" width="43" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-60" value="实体向量库" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-249" y="157" width="78" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-61" value="三元组向量库" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="130" y="46" width="90" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-64" target="KQcT1T2ag9PjqJUIMcqv-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-63" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-62">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-64" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="158" y="434" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-65" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="302" y="434" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-70" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="351" y="592" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-75" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-78" target="KQcT1T2ag9PjqJUIMcqv-65">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="304" y="540" as="sourcePoint" />
+            <mxPoint x="354" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-76" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-78" target="KQcT1T2ag9PjqJUIMcqv-77">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="397.5" y="620" as="sourcePoint" />
+            <mxPoint x="425.5" y="687" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-77" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="171.5" y="602" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-78" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="201.5" y="526" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-80" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-78" target="KQcT1T2ag9PjqJUIMcqv-70">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="244.5" y="562" as="sourcePoint" />
+            <mxPoint x="220.5" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-81" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="300" y="486" as="geometry">
+            <mxPoint x="-19" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-82" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="308" y="572" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-83" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="224" y="577" as="geometry">
+            <mxPoint x="-3" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-84" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-70" target="KQcT1T2ag9PjqJUIMcqv-85">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="433" y="607" as="sourcePoint" />
+            <mxPoint x="477" y="605" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-85" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="511" y="592" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-86" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="478" y="602" as="geometry">
+            <mxPoint x="-19" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-87" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="541" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-89" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="KQcT1T2ag9PjqJUIMcqv-87">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="615" as="sourcePoint" />
+            <mxPoint x="361" y="615" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-88" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="427" y="596" as="geometry">
+            <mxPoint x="-293" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-90" target="KQcT1T2ag9PjqJUIMcqv-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-90" value="query" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-313" y="533" width="76" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-92" target="KQcT1T2ag9PjqJUIMcqv-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-92" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-161" y="487.75" width="94" height="81.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-94" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="-147" y="503.25" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-95" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="-147" y="534.25" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-99" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="34" y="693" width="567" height="223" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-102" target="KQcT1T2ag9PjqJUIMcqv-103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-101" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="KQcT1T2ag9PjqJUIMcqv-100">
+          <mxGeometry x="-0.0769" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-102" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="158" y="710" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-103" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="302" y="710" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-104" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="351" y="868" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-105" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-108" target="KQcT1T2ag9PjqJUIMcqv-103">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="304" y="816" as="sourcePoint" />
+            <mxPoint x="354" y="766" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-106" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-108" target="KQcT1T2ag9PjqJUIMcqv-107">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="397.5" y="896" as="sourcePoint" />
+            <mxPoint x="425.5" y="963" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-107" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="171.5" y="878" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-108" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="201.5" y="802" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-109" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-108" target="KQcT1T2ag9PjqJUIMcqv-104">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="244.5" y="838" as="sourcePoint" />
+            <mxPoint x="220.5" y="888" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-110" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="300" y="762" as="geometry">
+            <mxPoint x="-19" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-111" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="308" y="848" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-112" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="224" y="853" as="geometry">
+            <mxPoint x="-3" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-113" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KQcT1T2ag9PjqJUIMcqv-104" target="KQcT1T2ag9PjqJUIMcqv-114">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="433" y="883" as="sourcePoint" />
+            <mxPoint x="477" y="881" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-114" value="entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="511" y="868" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-115" value="real&amp;nbsp;&lt;div&gt;relation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="478" y="878" as="geometry">
+            <mxPoint x="-19" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-116" value="entity" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="817" width="66" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-117" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="KQcT1T2ag9PjqJUIMcqv-116">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="891" as="sourcePoint" />
+            <mxPoint x="361" y="891" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQcT1T2ag9PjqJUIMcqv-118" value="&lt;span style=&quot;font-size: 12px; text-wrap-mode: wrap;&quot;&gt;sim relation&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="1">
+          <mxGeometry x="427" y="872" as="geometry">
+            <mxPoint x="-293" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
